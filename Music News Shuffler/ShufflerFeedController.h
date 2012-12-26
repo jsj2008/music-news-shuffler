@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ShufflerFeedController.h
 //  Music News Shuffler
 //
 //  Created by Nick Nikolov on 26/12/2012.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ShufflerFeedController : UITableViewController
 
 @end

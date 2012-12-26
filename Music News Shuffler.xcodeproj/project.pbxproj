@@ -16,13 +16,20 @@
 		AD0467D0168B369700F4D9AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467CF168B369700F4D9AD /* Default.png */; };
 		AD0467D2168B369700F4D9AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467D1168B369700F4D9AD /* Default@2x.png */; };
 		AD0467D4168B369700F4D9AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467D3168B369700F4D9AD /* Default-568h@2x.png */; };
-		AD0467D7168B369700F4D9AD /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD0467D5168B369700F4D9AD /* MainStoryboard.storyboard */; };
-		AD0467DA168B369700F4D9AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467D9168B369700F4D9AD /* ViewController.m */; };
 		AD0467E2168B369800F4D9AD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467E1168B369800F4D9AD /* SenTestingKit.framework */; };
 		AD0467E3168B369800F4D9AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BD168B369700F4D9AD /* UIKit.framework */; };
 		AD0467E4168B369800F4D9AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BF168B369700F4D9AD /* Foundation.framework */; };
 		AD0467EC168B369800F4D9AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0467EA168B369800F4D9AD /* InfoPlist.strings */; };
 		AD0467EF168B369800F4D9AD /* Music_News_ShufflerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467EE168B369800F4D9AD /* Music_News_ShufflerTests.m */; };
+		AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046802168B54CB00F4D9AD /* RXMLElement.m */; };
+		AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046805168B552F00F4D9AD /* libz.dylib */; };
+		AD046808168B553E00F4D9AD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046807168B553E00F4D9AD /* libxml2.dylib */; };
+		AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD046809168B586900F4D9AD /* Storyboard.storyboard */; };
+		AD04680D168B598300F4D9AD /* ArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* ArticleTableCell.m */; };
+		AD046810168B5A4100F4D9AD /* ShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */; };
+		AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */; };
+		AD046816168B718200F4D9AD /* RSSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046815168B718200F4D9AD /* RSSArticle.m */; };
+		AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046818168B778D00F4D9AD /* ArticleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,15 +56,27 @@
 		AD0467CF168B369700F4D9AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AD0467D1168B369700F4D9AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AD0467D3168B369700F4D9AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AD0467D6168B369700F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		AD0467D8168B369700F4D9AD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		AD0467D9168B369700F4D9AD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AD0467E0168B369800F4D9AD /* Music News ShufflerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music News ShufflerTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0467E1168B369800F4D9AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AD0467E9168B369800F4D9AD /* Music News ShufflerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Music News ShufflerTests-Info.plist"; sourceTree = "<group>"; };
 		AD0467EB168B369800F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD0467ED168B369800F4D9AD /* Music_News_ShufflerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music_News_ShufflerTests.h; sourceTree = "<group>"; };
 		AD0467EE168B369800F4D9AD /* Music_News_ShufflerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music_News_ShufflerTests.m; sourceTree = "<group>"; };
+		AD046801168B54CB00F4D9AD /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
+		AD046802168B54CB00F4D9AD /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
+		AD046805168B552F00F4D9AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		AD046807168B553E00F4D9AD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		AD046809168B586900F4D9AD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		AD04680B168B598300F4D9AD /* ArticleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableCell.h; sourceTree = "<group>"; };
+		AD04680C168B598300F4D9AD /* ArticleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableCell.m; sourceTree = "<group>"; };
+		AD04680E168B5A4100F4D9AD /* ShufflerFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflerFeedController.h; sourceTree = "<group>"; };
+		AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflerFeedController.m; sourceTree = "<group>"; };
+		AD046811168B6C4800F4D9AD /* RSSFeedsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsLoader.h; sourceTree = "<group>"; };
+		AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSFeedsLoader.m; sourceTree = "<group>"; };
+		AD046814168B718200F4D9AD /* RSSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSArticle.h; sourceTree = "<group>"; };
+		AD046815168B718200F4D9AD /* RSSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSArticle.m; sourceTree = "<group>"; };
+		AD046817168B778D00F4D9AD /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleViewController.h; path = ../ArticleViewController.h; sourceTree = "<group>"; };
+		AD046818168B778D00F4D9AD /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleViewController.m; path = ../ArticleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD046808168B553E00F4D9AD /* libxml2.dylib in Frameworks */,
+				AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */,
 				AD0467BE168B369700F4D9AD /* UIKit.framework in Frameworks */,
 				AD0467C0168B369700F4D9AD /* Foundation.framework in Frameworks */,
 				AD0467C2168B369700F4D9AD /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +108,9 @@
 		AD0467AE168B369700F4D9AD = {
 			isa = PBXGroup;
 			children = (
+				AD046807168B553E00F4D9AD /* libxml2.dylib */,
+				AD046805168B552F00F4D9AD /* libz.dylib */,
+				AD046800168B54CB00F4D9AD /* RaptureXML */,
 				AD0467C3168B369700F4D9AD /* Music News Shuffler */,
 				AD0467E7168B369800F4D9AD /* Music News ShufflerTests */,
 				AD0467BC168B369700F4D9AD /* Frameworks */,
@@ -119,9 +143,17 @@
 			children = (
 				AD0467CC168B369700F4D9AD /* AppDelegate.h */,
 				AD0467CD168B369700F4D9AD /* AppDelegate.m */,
-				AD0467D5168B369700F4D9AD /* MainStoryboard.storyboard */,
-				AD0467D8168B369700F4D9AD /* ViewController.h */,
-				AD0467D9168B369700F4D9AD /* ViewController.m */,
+				AD046809168B586900F4D9AD /* Storyboard.storyboard */,
+				AD04680E168B5A4100F4D9AD /* ShufflerFeedController.h */,
+				AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */,
+				AD046811168B6C4800F4D9AD /* RSSFeedsLoader.h */,
+				AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */,
+				AD046814168B718200F4D9AD /* RSSArticle.h */,
+				AD046815168B718200F4D9AD /* RSSArticle.m */,
+				AD04680B168B598300F4D9AD /* ArticleTableCell.h */,
+				AD04680C168B598300F4D9AD /* ArticleTableCell.m */,
+				AD046817168B778D00F4D9AD /* ArticleViewController.h */,
+				AD046818168B778D00F4D9AD /* ArticleViewController.m */,
 				AD0467C4168B369700F4D9AD /* Supporting Files */,
 			);
 			path = "Music News Shuffler";
@@ -158,6 +190,15 @@
 				AD0467EA168B369800F4D9AD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD046800168B54CB00F4D9AD /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				AD046801168B54CB00F4D9AD /* RXMLElement.h */,
+				AD046802168B54CB00F4D9AD /* RXMLElement.m */,
+			);
+			path = RaptureXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,7 +276,7 @@
 				AD0467D0168B369700F4D9AD /* Default.png in Resources */,
 				AD0467D2168B369700F4D9AD /* Default@2x.png in Resources */,
 				AD0467D4168B369700F4D9AD /* Default-568h@2x.png in Resources */,
-				AD0467D7168B369700F4D9AD /* MainStoryboard.storyboard in Resources */,
+				AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +313,12 @@
 			files = (
 				AD0467CA168B369700F4D9AD /* main.m in Sources */,
 				AD0467CE168B369700F4D9AD /* AppDelegate.m in Sources */,
-				AD0467DA168B369700F4D9AD /* ViewController.m in Sources */,
+				AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */,
+				AD04680D168B598300F4D9AD /* ArticleTableCell.m in Sources */,
+				AD046810168B5A4100F4D9AD /* ShufflerFeedController.m in Sources */,
+				AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */,
+				AD046816168B718200F4D9AD /* RSSArticle.m in Sources */,
+				AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +347,6 @@
 				AD0467C7168B369700F4D9AD /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AD0467D5168B369700F4D9AD /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD0467D6168B369700F4D9AD /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		AD0467EA168B369800F4D9AD /* InfoPlist.strings */ = {
@@ -377,6 +415,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Music News Shuffler/Music News Shuffler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -388,6 +427,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "Music News Shuffler/Music News Shuffler-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -447,6 +487,7 @@
 				AD0467F4168B369800F4D9AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AD0467F5168B369800F4D9AD /* Build configuration list for PBXNativeTarget "Music News ShufflerTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +496,7 @@
 				AD0467F7168B369800F4D9AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
