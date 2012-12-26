@@ -7,35 +7,21 @@
 //
 
 #import "RSSArticle.h"
+#import "RXMLElement.h"
 
 @implementation RSSArticle
 
--(NSAttributedString *)cellMessage
++ (RSSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement
 {
-    if (_cellMessage) return _cellMessage;
-    
-    NSDictionary* boldStyle = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:16.0]};
-    NSDictionary* normalStyle = @{NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:16.0]};
-    
-    NSMutableAttributedString* articleAbstract = [[NSMutableAttributedString alloc] initWithString:self.title];
-    
-    [articleAbstract setAttributes:boldStyle range:NSMakeRange(0, self.title.length)];
-    
-    [articleAbstract appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n\n"]];
-    
-    int startIndex = [articleAbstract length];
-    
-    NSString* desciption = [NSString stringWithFormat:@"%@... ", [self.description substringToIndex:self.description.length * 0.1]];
-    //desciption = [desciption gtm_stringByEscapingForHTML];
-    
-    [articleAbstract appendAttributedString:[[NSAttributedString alloc] initWithString: desciption]];
-    
-    [articleAbstract setAttributes:normalStyle range:NSMakeRange(startIndex, articleAbstract.length - startIndex)];
-    
-    _cellMessage = articleAbstract;
-    
-    return _cellMessage;
-    
-}
+    RSSArticle* article = [[RSSArticle alloc] init];
+    article.title = [[XMLElement child:@"title" ] text];
+    article.link = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
+    NSDate *dateFromString = [[NSDate alloc] init];
+    dateFromString = [dateFormatter dateFromString:[XMLElement child:@"pubDate"].text];
+    article.date = dateFromString;
+    return article;
 
+}
 @end

@@ -16,18 +16,6 @@
 
 @implementation RSSFeedsLoader
 
-- (RSSArticle *)createRSSArticle:(RXMLElement *)XMLElement
-{
-    RSSArticle* article = [[RSSArticle alloc] init];
-    article.title = [[XMLElement child:@"title" ] text];
-    article.link = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
-    NSDate *dateFromString = [[NSDate alloc] init];
-    dateFromString = [dateFormatter dateFromString:[XMLElement child:@"pubDate"].text];
-    article.date = dateFromString;
-    return article;
-}
 
 - (NSMutableArray*)loadTypeAFeedWithURL:(NSString *)url descriptionTag:(NSString *)descTag
 {
@@ -39,12 +27,10 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [self createRSSArticle:e];
-            
+            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
             article.articleType = @"A";
             article.description = [e child:descTag].text;
             [articles addObject:article];
-            
             
         }
         
@@ -66,7 +52,7 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [self createRSSArticle:e];
+            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
             article.articleType = @"B";
             [articles addObject:article];
             
@@ -90,7 +76,7 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [self createRSSArticle:e];
+            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
             NSString* fullDesc = [[e child:descTag].text
                                   stringByAppendingFormat:@"<p> To read full article go to: %@", article.link];
             article.description = fullDesc;
