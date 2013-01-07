@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 
+@property (strong, nonatomic) UITabBarController* tabBarController;
 @property (strong, nonatomic) UIWindow *window;
+
+- (void)showSmartShuffleLoginView;
+- (void)openSession;
 
 @end

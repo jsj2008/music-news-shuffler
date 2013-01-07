@@ -36,6 +36,12 @@
 		AD9E7307168BBF1B00F2D42A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7306168BBF1B00F2D42A /* AdSupport.framework */; };
 		AD9E7309168BBF2800F2D42A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7308168BBF2800F2D42A /* Accounts.framework */; };
 		AD9E730B168BBF3200F2D42A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E730A168BBF3200F2D42A /* Social.framework */; };
+		ADAFA9371690E3240077201B /* action-eating.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9331690E3240077201B /* action-eating.png */; };
+		ADAFA9381690E3240077201B /* action-location.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9341690E3240077201B /* action-location.png */; };
+		ADAFA9391690E3240077201B /* action-people.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9351690E3240077201B /* action-people.png */; };
+		ADAFA93A1690E3240077201B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9361690E3240077201B /* facebook.png */; };
+		ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */; };
+		ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +95,14 @@
 		AD9E7306168BBF1B00F2D42A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		AD9E7308168BBF2800F2D42A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AD9E730A168BBF3200F2D42A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		ADAFA9331690E3240077201B /* action-eating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-eating.png"; sourceTree = "<group>"; };
+		ADAFA9341690E3240077201B /* action-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-location.png"; sourceTree = "<group>"; };
+		ADAFA9351690E3240077201B /* action-people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-people.png"; sourceTree = "<group>"; };
+		ADAFA9361690E3240077201B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		ADAFA93B1690E4810077201B /* SmartShuffleLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartShuffleLoginViewController.h; sourceTree = "<group>"; };
+		ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleLoginViewController.m; sourceTree = "<group>"; };
+		ADAFA93E1690E9F40077201B /* SmartShuffleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartShuffleViewController.h; sourceTree = "<group>"; };
+		ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +177,14 @@
 		AD0467C3168B369700F4D9AD /* Music News Shuffler */ = {
 			isa = PBXGroup;
 			children = (
+				ADAFA9301690E30F0077201B /* Facebook */,
 				AD0467CC168B369700F4D9AD /* AppDelegate.h */,
 				AD0467CD168B369700F4D9AD /* AppDelegate.m */,
+				ADAFA93B1690E4810077201B /* SmartShuffleLoginViewController.h */,
+				ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */,
 				AD046809168B586900F4D9AD /* Storyboard.storyboard */,
+				ADAFA93E1690E9F40077201B /* SmartShuffleViewController.h */,
+				ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */,
 				AD04680E168B5A4100F4D9AD /* ShufflerFeedController.h */,
 				AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */,
 				AD046811168B6C4800F4D9AD /* RSSFeedsLoader.h */,
@@ -221,6 +240,25 @@
 				AD046802168B54CB00F4D9AD /* RXMLElement.m */,
 			);
 			path = RaptureXML;
+			sourceTree = "<group>";
+		};
+		ADAFA9301690E30F0077201B /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				ADAFA9321690E3240077201B /* images */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
+		ADAFA9321690E3240077201B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				ADAFA9331690E3240077201B /* action-eating.png */,
+				ADAFA9341690E3240077201B /* action-location.png */,
+				ADAFA9351690E3240077201B /* action-people.png */,
+				ADAFA9361690E3240077201B /* facebook.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +340,10 @@
 				AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */,
 				AD9E7303168BBE8F00F2D42A /* FacebookSDKResources.bundle in Resources */,
 				AD9E7305168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle in Resources */,
+				ADAFA9371690E3240077201B /* action-eating.png in Resources */,
+				ADAFA9381690E3240077201B /* action-location.png in Resources */,
+				ADAFA9391690E3240077201B /* action-people.png in Resources */,
+				ADAFA93A1690E3240077201B /* facebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +386,8 @@
 				AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */,
 				AD046816168B718200F4D9AD /* RSSArticle.m in Sources */,
 				AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */,
+				ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */,
+				ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

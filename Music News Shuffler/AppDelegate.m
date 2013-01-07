@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "FacebookSDK/FacebookSDK.h"
+#import "SmartShuffleLoginViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    NSLog(@"Root: %@", self.window.rootViewController);
+    _tabBarController = (UITabBarController *)self.window.rootViewController;
+    _tabBarController.delegate = self;
+    //NSLog(@"Selected tab index %u", tabController.selectedIndex);
+
     return YES;
 }
 							
@@ -26,6 +33,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+   
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -35,12 +43,99 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // We need to properly handle activation of the application with regards to Facebook Login
+    // (e.g., returning from iOS 6.0 Login Dialog or from fast app switching).
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)showSmartShuffleLoginView
+{
+    [_tabBarController performSegueWithIdentifier:@"smartShuffleLogin" sender:_tabBarController];
+    
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    NSLog(@"dnot you work");
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"%u", tabBarController.selectedIndex);
+    
+    if (tabBarController.selectedIndex = 1)
+    {
+        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            [self openSession];
+        } else {
+            
+            [self showSmartShuffleLoginView];
+        }
+
+        
+    }
+    
+}
+
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen: {
+//            UIViewController *topViewController =
+//            [self.navController topViewController];
+//            if ([[topViewController modalViewController]
+//                 isKindOfClass:[SCLoginViewController class]]) {
+//                [topViewController dismissModalViewControllerAnimated:YES];
+//            }
+           [_tabBarController dismissViewControllerAnimated:YES completion:nil];
+            
+
+        }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+        
+            [FBSession.activeSession closeAndClearTokenInformation];
+            
+            [self showSmartShuffleLoginView];
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }    
+}
+
+- (void)openSession
+{
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+     }];
+}
+
+
 
 @end
