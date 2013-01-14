@@ -55,8 +55,9 @@
 
 - (void)showSmartShuffleLoginView
 {
-    [_tabBarController performSegueWithIdentifier:@"smartShuffleLogin" sender:_tabBarController];
-    
+
+        [_tabBarController performSegueWithIdentifier:@"smartShuffleLogin" sender:_tabBarController];
+
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -64,7 +65,6 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
 {
-    NSLog(@"dnot you work");
     return [FBSession.activeSession handleOpenURL:url];
 }
 
@@ -72,15 +72,15 @@
 {
     NSLog(@"%u", tabBarController.selectedIndex);
     
-    if (tabBarController.selectedIndex = 1)
+    if (tabBarController.selectedIndex == 1)
     {
         if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"active session: %u", FBSession.activeSession.state);
             [self openSession];
         } else {
-            
+            NSLog(@"inactive session: %u", FBSession.activeSession.state);
             [self showSmartShuffleLoginView];
         }
-
         
     }
     
@@ -90,6 +90,8 @@
                       state:(FBSessionState) state
                       error:(NSError *)error
 {
+    
+    
     switch (state) {
         case FBSessionStateOpen: {
 //            UIViewController *topViewController =
@@ -98,7 +100,9 @@
 //                 isKindOfClass:[SCLoginViewController class]]) {
 //                [topViewController dismissModalViewControllerAnimated:YES];
 //            }
-           [_tabBarController dismissViewControllerAnimated:YES completion:nil];
+        
+            [_tabBarController dismissViewControllerAnimated:YES completion:nil];
+            NSLog(@"dismissing login view controller");
             
 
         }
@@ -107,6 +111,8 @@
         case FBSessionStateClosedLoginFailed:
         
             [FBSession.activeSession closeAndClearTokenInformation];
+            
+            NSLog(@"clearing token");
             
             [self showSmartShuffleLoginView];
             break;
@@ -134,8 +140,8 @@
        FBSessionState state, NSError *error) {
          [self sessionStateChanged:session state:state error:error];
      }];
+    
 }
-
 
 
 @end

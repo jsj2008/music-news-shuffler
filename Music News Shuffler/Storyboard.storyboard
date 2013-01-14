@@ -33,7 +33,7 @@
         <!--Smart Shuffle Login View Controller-->
         <scene sceneID="cJ0-45-VJT">
             <objects>
-                <viewController id="ULN-rR-52d" customClass="SmartShuffleLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SmartShuffleLoginViewController" id="ULN-rR-52d" customClass="SmartShuffleLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMD-Rt-5f4">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
