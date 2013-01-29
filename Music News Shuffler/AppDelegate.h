@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+extern NSString *const FBSessionStateChangedNotification;
+
 
 @interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
+
+
 
 @property (strong, nonatomic) UITabBarController* tabBarController;
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)showSmartShuffleLoginView;
-- (void)openSession;
+- (void)performLogout;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+
 
 @end

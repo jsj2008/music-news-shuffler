@@ -39,8 +39,7 @@
     [self.tableView addSubview: refreshControl];
     
     [self refreshFeed];
-    
-    
+        
 }
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state

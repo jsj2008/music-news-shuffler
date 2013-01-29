@@ -11,10 +11,10 @@
 
 @interface SmartShuffleLoginViewController : UIViewController
 
+- (IBAction)cancelLogin:(id)sender;
 
 - (IBAction)perfomLogin:(id)sender;
-- (void)loginFailed;
-
+- (void)dismissLoginView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

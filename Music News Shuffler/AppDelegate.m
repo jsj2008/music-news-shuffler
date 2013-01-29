@@ -9,17 +9,14 @@
 #import "AppDelegate.h"
 #import "FacebookSDK/FacebookSDK.h"
 #import "SmartShuffleLoginViewController.h"
+#import "SmartShuffleViewController.h"
+NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBSessionStateChangedNotification";
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    NSLog(@"Root: %@", self.window.rootViewController);
-    _tabBarController = (UITabBarController *)self.window.rootViewController;
-    _tabBarController.delegate = self;
-    //NSLog(@"Selected tab index %u", tabController.selectedIndex);
-
     return YES;
 }
 							
@@ -50,75 +47,79 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [FBSession.activeSession close];
 }
 
 - (void)showSmartShuffleLoginView
 {
-
-        [_tabBarController performSegueWithIdentifier:@"smartShuffleLogin" sender:_tabBarController];
-
+    SmartShuffleViewController* smartShuffleViewController = (SmartShuffleViewController*)[[self tabBarController] selectedViewController];
+    NSLog(@"AppDelegate: Show the login view");
+    [smartShuffleViewController showLoginView];
 }
 
+/*
+ * If we have a valid session at the time of openURL call, we handle
+ * Facebook transitions by passing the url argument to handleOpenURL
+ */
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
-{
+         annotation:(id)annotation {
+    // attempt to extract a token from the url
     return [FBSession.activeSession handleOpenURL:url];
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    NSLog(@"%u", tabBarController.selectedIndex);
+
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"email",
+                            @"user_likes",
+                            nil];
     
-    if (tabBarController.selectedIndex == 1)
-    {
-        if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
-            NSLog(@"active session: %u", FBSession.activeSession.state);
-            [self openSession];
-        } else {
-            NSLog(@"inactive session: %u", FBSession.activeSession.state);
-            [self showSmartShuffleLoginView];
-        }
-        
-    }
+    NSLog(@"App Delegate: Opening session");
+
     
+    return [FBSession openActiveSessionWithReadPermissions:permissions
+                                              allowLoginUI:allowLoginUI
+                                         completionHandler:^(FBSession *session,
+                                                             FBSessionState state,
+                                                             NSError *error) {
+                                             [self sessionStateChanged:session
+                                                                 state:state
+                                                                 error:error];
+                                         }];
 }
+
+/*
+ * Callback for session changes.
+ */
 
 - (void)sessionStateChanged:(FBSession *)session
                       state:(FBSessionState) state
                       error:(NSError *)error
 {
     
+    NSLog(@"AppDelegate: Session state changed");
     
     switch (state) {
-        case FBSessionStateOpen: {
-//            UIViewController *topViewController =
-//            [self.navController topViewController];
-//            if ([[topViewController modalViewController]
-//                 isKindOfClass:[SCLoginViewController class]]) {
-//                [topViewController dismissModalViewControllerAnimated:YES];
-//            }
-        
-            [_tabBarController dismissViewControllerAnimated:YES completion:nil];
-            NSLog(@"dismissing login view controller");
-            
-
-        }
+        case FBSessionStateOpen:
+            if (!error) {
+                NSLog(@"AppDelegate: User session found");
+            }
             break;
         case FBSessionStateClosed:
         case FBSessionStateClosedLoginFailed:
-        
             [FBSession.activeSession closeAndClearTokenInformation];
-            
-            NSLog(@"clearing token");
-            
+            NSLog(@"App Delegate: Clearing FB token");
             [self showSmartShuffleLoginView];
             break;
         default:
             break;
     }
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:FBSessionStateChangedNotification
+     object:session];
     
     if (error) {
         UIAlertView *alertView = [[UIAlertView alloc]
@@ -128,19 +129,18 @@
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];
         [alertView show];
-    }    
+    }
 }
 
-- (void)openSession
+/*
+ * Opens a Facebook session and optionally shows the login UX.
+ */
+
+- (void)performLogout
 {
-    [FBSession openActiveSessionWithReadPermissions:nil
-                                       allowLoginUI:YES
-                                  completionHandler:
-     ^(FBSession *session,
-       FBSessionState state, NSError *error) {
-         [self sessionStateChanged:session state:state error:error];
-     }];
-    
+    [FBSession.activeSession closeAndClearTokenInformation];
+    //NSLog(@"inactive session: %u", FBSession.activeSession.state);
+
 }
 
 

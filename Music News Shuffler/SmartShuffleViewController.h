@@ -10,4 +10,8 @@
 
 @interface SmartShuffleViewController : UIViewController
 
+- (IBAction)performLogout:(id)sender;
+- (void)showLoginView;
+
+
 @end

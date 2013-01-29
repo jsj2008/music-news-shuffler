@@ -26,27 +26,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancelLogin:(id)sender
+{
+    NSLog(@"SmartShuffleLoginVewController: Cancel login");
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UITabBarController* tbc = (UITabBarController *)self.presentingViewController;
+    [tbc setSelectedIndex:0];
+
+}
+
+- (void)dismissLoginView
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UITabBarController* tbc = (UITabBarController *)self.presentingViewController;
+    [tbc setSelectedIndex:1];
+
+    NSLog(@"SmartShuffleLoginVewController: Dismiss self");
+    
 }
 
 - (IBAction)perfomLogin:(UIButton *)sender
 {
-    [self.spinner startAnimating];
     
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate openSession];
+    NSLog(@"SmartShuffleLoginVewController: Perform Login");
+    [self.spinner startAnimating];
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate openSessionWithAllowLoginUI:YES];
+    [self dismissLoginView];
 }
 
-- (void)loginFailed
-{
-    // User switched back to the app without authorizing. Stay here, but
-    // stop the spinner.
-    [self.spinner stopAnimating];
-}
+
 @end
