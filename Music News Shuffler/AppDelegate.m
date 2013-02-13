@@ -10,6 +10,9 @@
 #import "FacebookSDK/FacebookSDK.h"
 #import "SmartShuffleLoginViewController.h"
 #import "SmartShuffleViewController.h"
+#import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
+
 NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBSessionStateChangedNotification";
 
 

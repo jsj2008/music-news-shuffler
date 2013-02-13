@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Music News Shuffler.xcodeproj">
+      location = "self:MusicNewsShuffler.xcodeproj">
    </FileRef>
 </Workspace>

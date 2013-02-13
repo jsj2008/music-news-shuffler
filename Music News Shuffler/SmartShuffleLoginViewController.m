@@ -46,9 +46,6 @@
 - (void)dismissLoginView
 {
     [self dismissViewControllerAnimated:YES completion:nil];
-    UITabBarController* tbc = (UITabBarController *)self.presentingViewController;
-    [tbc setSelectedIndex:1];
-
     NSLog(@"SmartShuffleLoginVewController: Dismiss self");
     
 }

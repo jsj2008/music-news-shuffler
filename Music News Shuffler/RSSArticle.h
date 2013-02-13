@@ -11,11 +11,12 @@
 
 @interface RSSArticle : NSObject
 
-@property (strong, nonatomic) NSString* title;
-@property (strong, nonatomic) NSString* description;
-@property (strong, nonatomic) NSURL* link;
-@property (strong, nonatomic) NSDate* date;
-@property (strong, nonatomic) NSString* articleType;
+@property NSString *title;
+@property NSString *description;
+@property NSURL *url;
+@property NSDate *date;
+@property NSString *articleType;
+@property NSString *articleAuthor;
 
 + (RSSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement;
 

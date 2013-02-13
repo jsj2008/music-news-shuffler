@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "Music_News_ShufflerTests.h"
+#import "MusicNewsShufflerTests.h"
 
-@implementation Music_News_ShufflerTests
+@implementation MusicNewsShufflerTests
 
 - (void)setUp
 {

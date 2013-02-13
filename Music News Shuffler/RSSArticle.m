@@ -15,7 +15,7 @@
 {
     RSSArticle* article = [[RSSArticle alloc] init];
     article.title = [[XMLElement child:@"title" ] text];
-    article.link = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
+    article.url = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
     NSDate *dateFromString = [[NSDate alloc] init];
@@ -24,4 +24,6 @@
     return article;
 
 }
+
+
 @end

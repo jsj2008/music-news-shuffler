@@ -34,14 +34,14 @@
     
     if (self.detailItem) {
         
-        if (([self.detailItem articleType] == @"A") || ([self.detailItem articleType] == @"C")) {
+        if (([[self.detailItem articleType] isEqual: @"A"]) || ([[self.detailItem articleType] isEqual: @"C"])) {
             
             [self.articleWebView loadHTMLString:[self.detailItem description] baseURL:nil];
             
-        } else if ([self.detailItem articleType] == @"B") {
+        } else if ([[self.detailItem articleType] isEqual: @"B"]) {
             
             RSSArticle *item = (RSSArticle*)self.detailItem;
-            NSURLRequest *req = [NSURLRequest requestWithURL:item.link];
+            NSURLRequest *req = [NSURLRequest requestWithURL:item.url];
             [self.articleWebView loadRequest:req];
             
         }

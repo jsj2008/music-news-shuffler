@@ -20,16 +20,16 @@
 		AD0467E3168B369800F4D9AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BD168B369700F4D9AD /* UIKit.framework */; };
 		AD0467E4168B369800F4D9AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BF168B369700F4D9AD /* Foundation.framework */; };
 		AD0467EC168B369800F4D9AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0467EA168B369800F4D9AD /* InfoPlist.strings */; };
-		AD0467EF168B369800F4D9AD /* Music_News_ShufflerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467EE168B369800F4D9AD /* Music_News_ShufflerTests.m */; };
+		AD0467EF168B369800F4D9AD /* MusicNewsShufflerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */; };
 		AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046802168B54CB00F4D9AD /* RXMLElement.m */; };
 		AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046805168B552F00F4D9AD /* libz.dylib */; };
-		AD046808168B553E00F4D9AD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046807168B553E00F4D9AD /* libxml2.dylib */; };
 		AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD046809168B586900F4D9AD /* Storyboard.storyboard */; };
 		AD04680D168B598300F4D9AD /* ArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* ArticleTableCell.m */; };
 		AD046810168B5A4100F4D9AD /* ShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */; };
 		AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */; };
 		AD046816168B718200F4D9AD /* RSSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046815168B718200F4D9AD /* RSSArticle.m */; };
 		AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046818168B778D00F4D9AD /* ArticleViewController.m */; };
+		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
 		AD9E7303168BBE8F00F2D42A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */; };
 		AD9E7305168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7304168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle */; };
@@ -42,6 +42,15 @@
 		ADAFA93A1690E3240077201B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9361690E3240077201B /* facebook.png */; };
 		ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */; };
 		ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */; };
+		ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563A16BC501900B28F58 /* CFNetwork.framework */; };
+		ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563C16BC502700B28F58 /* CoreData.framework */; };
+		ADC6563E16BC505000B28F58 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046807168B553E00F4D9AD /* libxml2.dylib */; };
+		ADC6564016BC505A00B28F58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */; };
+		ADC6564216BC506D00B28F58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564116BC506D00B28F58 /* QuartzCore.framework */; };
+		ADC6564416BC507600B28F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564316BC507600B28F58 /* Security.framework */; };
+		ADC6564616BC507D00B28F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */; };
+		ADC6564816BC56AA00B28F58 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467E1168B369800F4D9AD /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ADC6566D16BC680D00B28F58 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6566416BC662800B28F58 /* libRestKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,28 +61,63 @@
 			remoteGlobalIDString = AD0467B8168B369700F4D9AD;
 			remoteInfo = "Music News Shuffler";
 		};
+		ADC6566316BC662800B28F58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		ADC6566516BC662800B28F58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		ADC6566716BC662800B28F58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		ADC6566916BC662800B28F58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		ADC6566B16BC680800B28F58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AD0467B9168B369700F4D9AD /* Music News Shuffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Music News Shuffler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0467B9168B369700F4D9AD /* MusicNewsShuffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNewsShuffler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0467BD168B369700F4D9AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD0467BF168B369700F4D9AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AD0467C1168B369700F4D9AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AD0467C5168B369700F4D9AD /* Music News Shuffler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Music News Shuffler-Info.plist"; sourceTree = "<group>"; };
+		AD0467C5168B369700F4D9AD /* MusicNewsShuffler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicNewsShuffler-Info.plist"; sourceTree = "<group>"; };
 		AD0467C7168B369700F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD0467C9168B369700F4D9AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AD0467CB168B369700F4D9AD /* Music News Shuffler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Music News Shuffler-Prefix.pch"; sourceTree = "<group>"; };
+		AD0467CB168B369700F4D9AD /* MusicNewsShuffler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicNewsShuffler-Prefix.pch"; sourceTree = "<group>"; };
 		AD0467CC168B369700F4D9AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AD0467CD168B369700F4D9AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AD0467CF168B369700F4D9AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AD0467D1168B369700F4D9AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AD0467D3168B369700F4D9AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AD0467E0168B369800F4D9AD /* Music News ShufflerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music News ShufflerTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0467E0168B369800F4D9AD /* MusicNewsShufflerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicNewsShufflerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0467E1168B369800F4D9AD /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AD0467E9168B369800F4D9AD /* Music News ShufflerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Music News ShufflerTests-Info.plist"; sourceTree = "<group>"; };
+		AD0467E9168B369800F4D9AD /* MusicNewsShufflerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MusicNewsShufflerTests-Info.plist"; sourceTree = "<group>"; };
 		AD0467EB168B369800F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AD0467ED168B369800F4D9AD /* Music_News_ShufflerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music_News_ShufflerTests.h; sourceTree = "<group>"; };
-		AD0467EE168B369800F4D9AD /* Music_News_ShufflerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music_News_ShufflerTests.m; sourceTree = "<group>"; };
+		AD0467ED168B369800F4D9AD /* MusicNewsShufflerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicNewsShufflerTests.h; sourceTree = "<group>"; };
+		AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNewsShufflerTests.m; sourceTree = "<group>"; };
 		AD046801168B54CB00F4D9AD /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
 		AD046802168B54CB00F4D9AD /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
 		AD046805168B552F00F4D9AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -89,6 +133,7 @@
 		AD046815168B718200F4D9AD /* RSSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSArticle.m; sourceTree = "<group>"; };
 		AD046817168B778D00F4D9AD /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleViewController.h; path = ../ArticleViewController.h; sourceTree = "<group>"; };
 		AD046818168B778D00F4D9AD /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleViewController.m; path = ../ArticleViewController.m; sourceTree = "<group>"; };
+		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		AD9E7304168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
@@ -103,6 +148,13 @@
 		ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleLoginViewController.m; sourceTree = "<group>"; };
 		ADAFA93E1690E9F40077201B /* SmartShuffleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartShuffleViewController.h; sourceTree = "<group>"; };
 		ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleViewController.m; sourceTree = "<group>"; };
+		ADC6563A16BC501900B28F58 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		ADC6563C16BC502700B28F58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		ADC6564116BC506D00B28F58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ADC6564316BC507600B28F58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,10 +162,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC6566D16BC680D00B28F58 /* libRestKit.a in Frameworks */,
+				ADC6564816BC56AA00B28F58 /* SenTestingKit.framework in Frameworks */,
+				ADC6564616BC507D00B28F58 /* SystemConfiguration.framework in Frameworks */,
+				ADC6564416BC507600B28F58 /* Security.framework in Frameworks */,
+				ADC6564216BC506D00B28F58 /* QuartzCore.framework in Frameworks */,
+				ADC6564016BC505A00B28F58 /* MobileCoreServices.framework in Frameworks */,
+				ADC6563E16BC505000B28F58 /* libxml2.dylib in Frameworks */,
+				ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */,
+				ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */,
 				AD9E730B168BBF3200F2D42A /* Social.framework in Frameworks */,
 				AD9E7309168BBF2800F2D42A /* Accounts.framework in Frameworks */,
 				AD9E7307168BBF1B00F2D42A /* AdSupport.framework in Frameworks */,
-				AD046808168B553E00F4D9AD /* libxml2.dylib in Frameworks */,
 				AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */,
 				AD0467BE168B369700F4D9AD /* UIKit.framework in Frameworks */,
 				AD0467C0168B369700F4D9AD /* Foundation.framework in Frameworks */,
@@ -139,8 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				AD046800168B54CB00F4D9AD /* RaptureXML */,
-				AD0467C3168B369700F4D9AD /* Music News Shuffler */,
-				AD0467E7168B369800F4D9AD /* Music News ShufflerTests */,
+				AD0467C3168B369700F4D9AD /* MusicNewsShuffler */,
+				AD0467E7168B369800F4D9AD /* MusicNewsShufflerTests */,
 				AD0467BC168B369700F4D9AD /* Frameworks */,
 				AD0467BA168B369700F4D9AD /* Products */,
 			);
@@ -149,8 +209,8 @@
 		AD0467BA168B369700F4D9AD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD0467B9168B369700F4D9AD /* Music News Shuffler.app */,
-				AD0467E0168B369800F4D9AD /* Music News ShufflerTests.octest */,
+				AD0467B9168B369700F4D9AD /* MusicNewsShuffler.app */,
+				AD0467E0168B369800F4D9AD /* MusicNewsShufflerTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +218,13 @@
 		AD0467BC168B369700F4D9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */,
+				ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */,
+				ADC6564316BC507600B28F58 /* Security.framework */,
+				ADC6564116BC506D00B28F58 /* QuartzCore.framework */,
+				ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */,
+				ADC6563C16BC502700B28F58 /* CoreData.framework */,
+				ADC6563A16BC501900B28F58 /* CFNetwork.framework */,
 				AD046807168B553E00F4D9AD /* libxml2.dylib */,
 				AD046805168B552F00F4D9AD /* libz.dylib */,
 				AD9E730A168BBF3200F2D42A /* Social.framework */,
@@ -174,7 +241,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AD0467C3168B369700F4D9AD /* Music News Shuffler */ = {
+		AD0467C3168B369700F4D9AD /* MusicNewsShuffler */ = {
 			isa = PBXGroup;
 			children = (
 				ADAFA9301690E30F0077201B /* Facebook */,
@@ -195,18 +262,20 @@
 				AD04680C168B598300F4D9AD /* ArticleTableCell.m */,
 				AD046817168B778D00F4D9AD /* ArticleViewController.h */,
 				AD046818168B778D00F4D9AD /* ArticleViewController.m */,
+				AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */,
 				AD0467C4168B369700F4D9AD /* Supporting Files */,
 			);
+			name = MusicNewsShuffler;
 			path = "Music News Shuffler";
 			sourceTree = "<group>";
 		};
 		AD0467C4168B369700F4D9AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AD0467C5168B369700F4D9AD /* Music News Shuffler-Info.plist */,
+				AD0467C5168B369700F4D9AD /* MusicNewsShuffler-Info.plist */,
 				AD0467C6168B369700F4D9AD /* InfoPlist.strings */,
 				AD0467C9168B369700F4D9AD /* main.m */,
-				AD0467CB168B369700F4D9AD /* Music News Shuffler-Prefix.pch */,
+				AD0467CB168B369700F4D9AD /* MusicNewsShuffler-Prefix.pch */,
 				AD0467CF168B369700F4D9AD /* Default.png */,
 				AD0467D1168B369700F4D9AD /* Default@2x.png */,
 				AD0467D3168B369700F4D9AD /* Default-568h@2x.png */,
@@ -214,20 +283,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AD0467E7168B369800F4D9AD /* Music News ShufflerTests */ = {
+		AD0467E7168B369800F4D9AD /* MusicNewsShufflerTests */ = {
 			isa = PBXGroup;
 			children = (
-				AD0467ED168B369800F4D9AD /* Music_News_ShufflerTests.h */,
-				AD0467EE168B369800F4D9AD /* Music_News_ShufflerTests.m */,
+				AD0467ED168B369800F4D9AD /* MusicNewsShufflerTests.h */,
+				AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */,
 				AD0467E8168B369800F4D9AD /* Supporting Files */,
 			);
+			name = MusicNewsShufflerTests;
 			path = "Music News ShufflerTests";
 			sourceTree = "<group>";
 		};
 		AD0467E8168B369800F4D9AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AD0467E9168B369800F4D9AD /* Music News ShufflerTests-Info.plist */,
+				AD0467E9168B369800F4D9AD /* MusicNewsShufflerTests-Info.plist */,
 				AD0467EA168B369800F4D9AD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -261,12 +331,23 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		ADC6565D16BC662700B28F58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADC6566416BC662800B28F58 /* libRestKit.a */,
+				ADC6566616BC662800B28F58 /* RestKitTests.octest */,
+				ADC6566816BC662800B28F58 /* RestKit.framework */,
+				ADC6566A16BC662800B28F58 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AD0467B8168B369700F4D9AD /* Music News Shuffler */ = {
+		AD0467B8168B369700F4D9AD /* MusicNewsShuffler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD0467F2168B369800F4D9AD /* Build configuration list for PBXNativeTarget "Music News Shuffler" */;
+			buildConfigurationList = AD0467F2168B369800F4D9AD /* Build configuration list for PBXNativeTarget "MusicNewsShuffler" */;
 			buildPhases = (
 				AD0467B5168B369700F4D9AD /* Sources */,
 				AD0467B6168B369700F4D9AD /* Frameworks */,
@@ -275,15 +356,16 @@
 			buildRules = (
 			);
 			dependencies = (
+				ADC6566C16BC680800B28F58 /* PBXTargetDependency */,
 			);
-			name = "Music News Shuffler";
+			name = MusicNewsShuffler;
 			productName = "Music News Shuffler";
-			productReference = AD0467B9168B369700F4D9AD /* Music News Shuffler.app */;
+			productReference = AD0467B9168B369700F4D9AD /* MusicNewsShuffler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AD0467DF168B369800F4D9AD /* Music News ShufflerTests */ = {
+		AD0467DF168B369800F4D9AD /* MusicNewsShufflerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD0467F5168B369800F4D9AD /* Build configuration list for PBXNativeTarget "Music News ShufflerTests" */;
+			buildConfigurationList = AD0467F5168B369800F4D9AD /* Build configuration list for PBXNativeTarget "MusicNewsShufflerTests" */;
 			buildPhases = (
 				AD0467DB168B369800F4D9AD /* Sources */,
 				AD0467DC168B369800F4D9AD /* Frameworks */,
@@ -295,9 +377,9 @@
 			dependencies = (
 				AD0467E6168B369800F4D9AD /* PBXTargetDependency */,
 			);
-			name = "Music News ShufflerTests";
+			name = MusicNewsShufflerTests;
 			productName = "Music News ShufflerTests";
-			productReference = AD0467E0168B369800F4D9AD /* Music News ShufflerTests.octest */;
+			productReference = AD0467E0168B369800F4D9AD /* MusicNewsShufflerTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +391,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Nick Nikolov";
 			};
-			buildConfigurationList = AD0467B3168B369700F4D9AD /* Build configuration list for PBXProject "Music News Shuffler" */;
+			buildConfigurationList = AD0467B3168B369700F4D9AD /* Build configuration list for PBXProject "MusicNewsShuffler" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -320,13 +402,50 @@
 			mainGroup = AD0467AE168B369700F4D9AD;
 			productRefGroup = AD0467BA168B369700F4D9AD /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ADC6565D16BC662700B28F58 /* Products */;
+					ProjectRef = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				AD0467B8168B369700F4D9AD /* Music News Shuffler */,
-				AD0467DF168B369800F4D9AD /* Music News ShufflerTests */,
+				AD0467B8168B369700F4D9AD /* MusicNewsShuffler */,
+				AD0467DF168B369800F4D9AD /* MusicNewsShufflerTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ADC6566416BC662800B28F58 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = ADC6566316BC662800B28F58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADC6566616BC662800B28F58 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = ADC6566516BC662800B28F58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADC6566816BC662800B28F58 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = ADC6566716BC662800B28F58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ADC6566A16BC662800B28F58 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = ADC6566916BC662800B28F58 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AD0467B7168B369700F4D9AD /* Resources */ = {
@@ -388,6 +507,7 @@
 				AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */,
 				ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */,
 				ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */,
+				AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD0467EF168B369800F4D9AD /* Music_News_ShufflerTests.m in Sources */,
+				AD0467EF168B369800F4D9AD /* MusicNewsShufflerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,8 +524,13 @@
 /* Begin PBXTargetDependency section */
 		AD0467E6168B369800F4D9AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AD0467B8168B369700F4D9AD /* Music News Shuffler */;
+			target = AD0467B8168B369700F4D9AD /* MusicNewsShuffler */;
 			targetProxy = AD0467E5168B369800F4D9AD /* PBXContainerItemProxy */;
+		};
+		ADC6566C16BC680800B28F58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = ADC6566B16BC680800B28F58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -482,18 +607,27 @@
 		AD0467F3168B369800F4D9AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FacebookSDK\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "Music News Shuffler/Music News Shuffler-Info.plist";
-				OTHER_LDFLAGS = "-lsqlite3.0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Music News Shuffler/MusicNewsShuffler-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
+				);
+				INFOPLIST_FILE = "Music News Shuffler/MusicNewsShuffler-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
+				PRODUCT_NAME = MusicNewsShuffler;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -501,18 +635,27 @@
 		AD0467F4168B369800F4D9AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FacebookSDK\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				INFOPLIST_FILE = "Music News Shuffler/Music News Shuffler-Info.plist";
-				OTHER_LDFLAGS = "-lsqlite3.0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Music News Shuffler/MusicNewsShuffler-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
+				);
+				INFOPLIST_FILE = "Music News Shuffler/MusicNewsShuffler-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lsqlite3.0",
+					"-ObjC",
+				);
+				PRODUCT_NAME = MusicNewsShuffler;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -527,8 +670,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				INFOPLIST_FILE = "Music News ShufflerTests/Music News ShufflerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Music News ShufflerTests/MusicNewsShufflerTests-Info.plist";
+				PRODUCT_NAME = MusicNewsShufflerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -544,8 +687,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				INFOPLIST_FILE = "Music News ShufflerTests/Music News ShufflerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "Music News ShufflerTests/MusicNewsShufflerTests-Info.plist";
+				PRODUCT_NAME = MusicNewsShufflerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -554,7 +697,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD0467B3168B369700F4D9AD /* Build configuration list for PBXProject "Music News Shuffler" */ = {
+		AD0467B3168B369700F4D9AD /* Build configuration list for PBXProject "MusicNewsShuffler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD0467F0168B369800F4D9AD /* Debug */,
@@ -563,7 +706,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD0467F2168B369800F4D9AD /* Build configuration list for PBXNativeTarget "Music News Shuffler" */ = {
+		AD0467F2168B369800F4D9AD /* Build configuration list for PBXNativeTarget "MusicNewsShuffler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD0467F3168B369800F4D9AD /* Debug */,
@@ -572,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD0467F5168B369800F4D9AD /* Build configuration list for PBXNativeTarget "Music News ShufflerTests" */ = {
+		AD0467F5168B369800F4D9AD /* Build configuration list for PBXNativeTarget "MusicNewsShufflerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD0467F6168B369800F4D9AD /* Debug */,
@@ -582,6 +725,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */,
+			);
+			currentVersion = AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */;
+			path = MusicNewsShufflerCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AD0467B0168B369700F4D9AD /* Project object */;
 }

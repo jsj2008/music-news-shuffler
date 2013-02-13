@@ -11,6 +11,7 @@
 #import "RSSArticle.h"
 
 
+
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 
@@ -78,7 +79,7 @@
         for (RXMLElement* e in rawRSSItems) {
             RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
             NSString* fullDesc = [[e child:descTag].text
-                                  stringByAppendingFormat:@"<p> To read full article go to: %@", article.link];
+                                  stringByAppendingFormat:@"<p> To read full article go to: %@", article.url];
             article.description = fullDesc;
             article.articleType = @"C";
             [articles addObject:article];

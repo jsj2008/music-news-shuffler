@@ -70,20 +70,21 @@
              }
          }];
         
-        [FBRequestConnection startWithGraphPath:@"me?fields=likes" completionHandler:
-         ^(FBRequestConnection *connection,
-           id result,
-           NSError *error) {
-            if (!error) {
-                NSLog(@"%@", result);
-                
-            }
-        }];
-        
-        
+        NSString *fqlQuery = @"SELECT music FROM user WHERE uid = me()";
+        NSDictionary *queryParam = @{@"q": fqlQuery};
+        [FBRequestConnection startWithGraphPath:@"/fql"
+                                     parameters:queryParam
+                                     HTTPMethod:@"GET"
+                              completionHandler:^(FBRequestConnection *connection,
+                                                  id result,
+                                                  NSError *error) {
+                                  if (error) {
+                                      NSLog(@"Error: %@", [error localizedDescription]);
+                                  } else {
+                                      NSLog(@"Result: %@", [[[result objectForKey:@"data"] objectAtIndex:0] objectForKey:@"music"]);
+                                  }
+                              }];
     }
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,5 +128,9 @@
 
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
 
 @end

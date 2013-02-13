@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD0467B8168B369700F4D9AD"
-               BuildableName = "Music News Shuffler.app"
-               BlueprintName = "Music News Shuffler"
-               ReferencedContainer = "container:Music News Shuffler.xcodeproj">
+               BuildableName = "MusicNewsShuffler.app"
+               BlueprintName = "MusicNewsShuffler"
+               ReferencedContainer = "container:MusicNewsShuffler.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD0467DF168B369800F4D9AD"
-               BuildableName = "Music News ShufflerTests.octest"
-               BlueprintName = "Music News ShufflerTests"
-               ReferencedContainer = "container:Music News Shuffler.xcodeproj">
+               BuildableName = "MusicNewsShufflerTests.octest"
+               BlueprintName = "MusicNewsShufflerTests"
+               ReferencedContainer = "container:MusicNewsShuffler.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD0467B8168B369700F4D9AD"
-            BuildableName = "Music News Shuffler.app"
-            BlueprintName = "Music News Shuffler"
-            ReferencedContainer = "container:Music News Shuffler.xcodeproj">
+            BuildableName = "MusicNewsShuffler.app"
+            BlueprintName = "MusicNewsShuffler"
+            ReferencedContainer = "container:MusicNewsShuffler.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD0467B8168B369700F4D9AD"
-            BuildableName = "Music News Shuffler.app"
-            BlueprintName = "Music News Shuffler"
-            ReferencedContainer = "container:Music News Shuffler.xcodeproj">
+            BuildableName = "MusicNewsShuffler.app"
+            BlueprintName = "MusicNewsShuffler"
+            ReferencedContainer = "container:MusicNewsShuffler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD0467B8168B369700F4D9AD"
-            BuildableName = "Music News Shuffler.app"
-            BlueprintName = "Music News Shuffler"
-            ReferencedContainer = "container:Music News Shuffler.xcodeproj">
+            BuildableName = "MusicNewsShuffler.app"
+            BlueprintName = "MusicNewsShuffler"
+            ReferencedContainer = "container:MusicNewsShuffler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

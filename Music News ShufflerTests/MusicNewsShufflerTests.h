@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface Music_News_ShufflerTests : SenTestCase
+@interface MusicNewsShufflerTests : SenTestCase
 
 @end
