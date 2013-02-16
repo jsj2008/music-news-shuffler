@@ -1,24 +1,23 @@
 //
-//  RSSArticle.h
-//  Music News Shuffler
+//  MNSArticle.h
+//  MusicNewsShuffler
 //
-//  Created by Nick Nikolov on 26/12/2012.
-//  Copyright (c) 2012 Nick Nikolov. All rights reserved.
+//  Created by Nick Nikolov on 16/02/2013.
+//  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-@class RXMLElement;
-
-@interface MNSArticle : NSObject
-
-@property NSString *author;
-@property NSString *content;
-@property NSDate *pubdate;
-@property NSURL *url;
-@property NSString *title;
-@property NSString *articleType;
+#import <CoreData/CoreData.h>
 
 
-+ (MNSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement;
+@interface MNSArticle : NSManagedObject
+
+@property (nonatomic, retain) NSString * author;
+@property (nonatomic, retain) NSString * content;
+@property (nonatomic, retain) NSString * pubdate;
+@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * articleID;
 
 @end

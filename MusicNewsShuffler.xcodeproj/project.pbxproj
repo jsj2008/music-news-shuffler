@@ -27,8 +27,11 @@
 		AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */; };
 		AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */; };
 		AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */; };
-		AD046816168B718200F4D9AD /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046815168B718200F4D9AD /* MNSArticle.m */; };
-		AD5F2FDA16CFD17F00763E52 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */; };
+		AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */; };
+		AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */; };
+		AD3EBC2216D03A6F00B68B50 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */; };
+		AD3EBC2316D03A6F00B68B50 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */; };
+		AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */; };
 		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
 		AD9E7303168BBE8F00F2D42A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */; };
@@ -129,10 +132,15 @@
 		AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSShufflerFeedController.m; sourceTree = "<group>"; };
 		AD046811168B6C4800F4D9AD /* MNSFeedsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSFeedsLoader.h; sourceTree = "<group>"; };
 		AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSFeedsLoader.m; sourceTree = "<group>"; };
-		AD046814168B718200F4D9AD /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
-		AD046815168B718200F4D9AD /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
-		AD1B5CBA16CFCEA90070FE8C /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleViewController.h; path = "../../../../../Music News Shuffler/ArticleViewController.h"; sourceTree = "<group>"; };
-		AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleViewController.m; path = "../../../../../Music News Shuffler/ArticleViewController.m"; sourceTree = "<group>"; };
+		AD1B5CBA16CFCEA90070FE8C /* MNSArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNSArticleViewController.h; path = "../../../../../Music News Shuffler/MNSArticleViewController.h"; sourceTree = "<group>"; };
+		AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNSArticleViewController.m; path = "../../../../../Music News Shuffler/MNSArticleViewController.m"; sourceTree = "<group>"; };
+		AD3EBC1816D01BD100B68B50 /* MNSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSDataModel.h; sourceTree = "<group>"; };
+		AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSDataModel.m; sourceTree = "<group>"; };
+		AD3EBC1B16D030BB00B68B50 /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
+		AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
+		AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		AD3EBC2016D03A6F00B68B50 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -198,7 +206,7 @@
 		AD0467AE168B369700F4D9AD = {
 			isa = PBXGroup;
 			children = (
-				AD046800168B54CB00F4D9AD /* RaptureXML */,
+				AD3EBC2416D03C1D00B68B50 /* Libraries */,
 				AD0467C3168B369700F4D9AD /* MusicNewsShuffler */,
 				AD0467E7168B369800F4D9AD /* MusicNewsShufflerTests */,
 				AD0467BC168B369700F4D9AD /* Frameworks */,
@@ -244,6 +252,7 @@
 		AD0467C3168B369700F4D9AD /* MusicNewsShuffler */ = {
 			isa = PBXGroup;
 			children = (
+				AD3EBC1616D01B8200B68B50 /* Models */,
 				ADAFA9301690E30F0077201B /* Facebook */,
 				AD0467CC168B369700F4D9AD /* MNSAppDelegate.h */,
 				AD0467CD168B369700F4D9AD /* MNSAppDelegate.m */,
@@ -251,18 +260,15 @@
 				ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */,
 				ADAFA93B1690E4810077201B /* MNSSmartShufflerLoginViewController.h */,
 				ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */,
-				AD046809168B586900F4D9AD /* Storyboard.storyboard */,
 				AD04680E168B5A4100F4D9AD /* MNSShufflerFeedController.h */,
 				AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */,
 				AD046811168B6C4800F4D9AD /* MNSFeedsLoader.h */,
 				AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */,
-				AD046814168B718200F4D9AD /* MNSArticle.h */,
-				AD046815168B718200F4D9AD /* MNSArticle.m */,
-				AD1B5CBA16CFCEA90070FE8C /* ArticleViewController.h */,
-				AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */,
+				AD1B5CBA16CFCEA90070FE8C /* MNSArticleViewController.h */,
+				AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */,
 				AD04680B168B598300F4D9AD /* MNSArticleTableCell.h */,
 				AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */,
-				AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */,
+				AD046809168B586900F4D9AD /* Storyboard.storyboard */,
 				AD0467C4168B369700F4D9AD /* Supporting Files */,
 			);
 			path = MusicNewsShuffler;
@@ -308,6 +314,45 @@
 				AD046802168B54CB00F4D9AD /* RXMLElement.m */,
 			);
 			path = RaptureXML;
+			sourceTree = "<group>";
+		};
+		AD3EBC1616D01B8200B68B50 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD3EBC1B16D030BB00B68B50 /* MNSArticle.h */,
+				AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */,
+				AD3EBC1716D01BA100B68B50 /* CoreData */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		AD3EBC1716D01BA100B68B50 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */,
+				AD3EBC1816D01BD100B68B50 /* MNSDataModel.h */,
+				AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		AD3EBC1E16D03A6F00B68B50 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */,
+				AD3EBC2016D03A6F00B68B50 /* SVProgressHUD.h */,
+				AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		AD3EBC2416D03C1D00B68B50 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AD3EBC1E16D03A6F00B68B50 /* SVProgressHUD */,
+				AD046800168B54CB00F4D9AD /* RaptureXML */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		ADAFA9301690E30F0077201B /* Facebook */ = {
@@ -461,6 +506,7 @@
 				ADAFA9381690E3240077201B /* action-location.png in Resources */,
 				ADAFA9391690E3240077201B /* action-people.png in Resources */,
 				ADAFA93A1690E3240077201B /* facebook.png in Resources */,
+				AD3EBC2216D03A6F00B68B50 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,11 +547,13 @@
 				AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */,
 				AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */,
 				AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */,
-				AD046816168B718200F4D9AD /* MNSArticle.m in Sources */,
 				ADAFA93D1690E4810077201B /* MNSSmartShufflerLoginViewController.m in Sources */,
 				ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */,
 				AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */,
-				AD5F2FDA16CFD17F00763E52 /* ArticleViewController.m in Sources */,
+				AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */,
+				AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */,
+				AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */,
+				AD3EBC2316D03A6F00B68B50 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,11 @@ typedef void (^RSSLoaderCompleteBlock)(NSArray* results);
 
 @interface MNSFeedsLoader : NSObject
 
--(NSMutableArray*)loadTypeAFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
--(NSMutableArray*)loadTypeBFeedWithURL:(NSString*)url;
--(NSMutableArray*)loadTypeCFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
+//-(NSMutableArray*)loadTypeAFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
+//-(NSMutableArray*)loadTypeBFeedWithURL:(NSString*)url;
+//-(NSMutableArray*)loadTypeCFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
 
--(void)fetchRSSWithCompletion:(RSSLoaderCompleteBlock)c;
+//-(void)fetchRSSWithCompletion:(RSSLoaderCompleteBlock)c;
 
 
 @end

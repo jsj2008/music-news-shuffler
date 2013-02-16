@@ -19,19 +19,6 @@ NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBS
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:3000/"];
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
-    
-    // Enable Activity Indicator Spinner
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-    // Initialize managed object store
-    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc]
-                                                initWithManagedObjectModel:managedObjectModel];
-    objectManager.managedObjectStore = managedObjectStore;
-    
     return YES;
 }
 							

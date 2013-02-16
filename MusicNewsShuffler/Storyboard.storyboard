@@ -107,7 +107,7 @@
         <!--Article View Controller-->
         <scene sceneID="uk3-cx-N59">
             <objects>
-                <viewController id="S8U-yR-zV9" customClass="ArticleViewController" sceneMemberID="viewController">
+                <viewController id="S8U-yR-zV9" customClass="MNSArticleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mBY-Fi-5J3">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,12 +220,6 @@
         </scene>
     </scenes>
     <classes>
-        <class className="ArticleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArticleViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="articleWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
         <class className="MNSArticleTableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSArticleTableCell.h"/>
             <relationships>

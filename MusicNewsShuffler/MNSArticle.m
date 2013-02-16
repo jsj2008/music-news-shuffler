@@ -1,29 +1,22 @@
 //
-//  RSSArticle.m
-//  Music News Shuffler
+//  MNSArticle.m
+//  MusicNewsShuffler
 //
-//  Created by Nick Nikolov on 26/12/2012.
-//  Copyright (c) 2012 Nick Nikolov. All rights reserved.
+//  Created by Nick Nikolov on 16/02/2013.
+//  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
 #import "MNSArticle.h"
-#import "RXMLElement.h"
+
 
 @implementation MNSArticle
 
-+ (MNSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement
-{
-    MNSArticle* article = [[MNSArticle alloc] init];
-    article.title = [[XMLElement child:@"title" ] text];
-    article.url = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
-    NSDate *dateFromString = [[NSDate alloc] init];
-    dateFromString = [dateFormatter dateFromString:[XMLElement child:@"pubDate"].text];
-    article.pubdate = dateFromString;
-    return article;
-
-}
-
+@dynamic author;
+@dynamic content;
+@dynamic pubdate;
+@dynamic urlString;
+@dynamic title;
+@dynamic type;
+@dynamic articleID;
 
 @end
