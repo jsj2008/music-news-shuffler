@@ -31,6 +31,7 @@
 		AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */; };
 		AD3EBC2216D03A6F00B68B50 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */; };
 		AD3EBC2316D03A6F00B68B50 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */; };
+		AD3EBC6816D03FAE00B68B50 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3EBC6116D03FA600B68B50 /* libRestKit.a */; };
 		AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */; };
 		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
@@ -53,7 +54,6 @@
 		ADC6564416BC507600B28F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564316BC507600B28F58 /* Security.framework */; };
 		ADC6564616BC507D00B28F58 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */; };
 		ADC6564816BC56AA00B28F58 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467E1168B369800F4D9AD /* SenTestingKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		ADC6566D16BC680D00B28F58 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6566416BC662800B28F58 /* libRestKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,40 +64,33 @@
 			remoteGlobalIDString = AD0467B8168B369700F4D9AD;
 			remoteInfo = MusicNewsShuffler;
 		};
-		ADC6566316BC662800B28F58 /* PBXContainerItemProxy */ = {
+		AD3EBC6016D03FA600B68B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D1614564E810060A5C5;
 			remoteInfo = RestKit;
 		};
-		ADC6566516BC662800B28F58 /* PBXContainerItemProxy */ = {
+		AD3EBC6216D03FA600B68B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160D2614564E820060A5C5;
 			remoteInfo = RestKitTests;
 		};
-		ADC6566716BC662800B28F58 /* PBXContainerItemProxy */ = {
+		AD3EBC6416D03FA600B68B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E62145651060060A5C5;
 			remoteInfo = RestKitFramework;
 		};
-		ADC6566916BC662800B28F58 /* PBXContainerItemProxy */ = {
+		AD3EBC6616D03FA600B68B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25160E78145651060060A5C5;
 			remoteInfo = RestKitFrameworkTests;
-		};
-		ADC6566B16BC680800B28F58 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -141,6 +134,7 @@
 		AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		AD3EBC2016D03A6F00B68B50 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../../../../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -162,7 +156,6 @@
 		ADC6564116BC506D00B28F58 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ADC6564316BC507600B28F58 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADC6566D16BC680D00B28F58 /* libRestKit.a in Frameworks */,
+				AD3EBC6816D03FAE00B68B50 /* libRestKit.a in Frameworks */,
 				ADC6564816BC56AA00B28F58 /* SenTestingKit.framework in Frameworks */,
 				ADC6564616BC507D00B28F58 /* SystemConfiguration.framework in Frameworks */,
 				ADC6564416BC507600B28F58 /* Security.framework in Frameworks */,
@@ -226,7 +219,7 @@
 		AD0467BC168B369700F4D9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */,
+				AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */,
 				ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */,
 				ADC6564316BC507600B28F58 /* Security.framework */,
 				ADC6564116BC506D00B28F58 /* QuartzCore.framework */,
@@ -355,6 +348,17 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		AD3EBC5A16D03FA600B68B50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD3EBC6116D03FA600B68B50 /* libRestKit.a */,
+				AD3EBC6316D03FA600B68B50 /* RestKitTests.octest */,
+				AD3EBC6516D03FA600B68B50 /* RestKit.framework */,
+				AD3EBC6716D03FA600B68B50 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ADAFA9301690E30F0077201B /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,17 +378,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		ADC6565D16BC662700B28F58 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ADC6566416BC662800B28F58 /* libRestKit.a */,
-				ADC6566616BC662800B28F58 /* RestKitTests.octest */,
-				ADC6566816BC662800B28F58 /* RestKit.framework */,
-				ADC6566A16BC662800B28F58 /* RestKitFrameworkTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -399,7 +392,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				ADC6566C16BC680800B28F58 /* PBXTargetDependency */,
 			);
 			name = MusicNewsShuffler;
 			productName = MusicNewsShuffler;
@@ -447,8 +439,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = ADC6565D16BC662700B28F58 /* Products */;
-					ProjectRef = ADC6565C16BC662700B28F58 /* RestKit.xcodeproj */;
+					ProductGroup = AD3EBC5A16D03FA600B68B50 /* Products */;
+					ProjectRef = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -460,32 +452,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		ADC6566416BC662800B28F58 /* libRestKit.a */ = {
+		AD3EBC6116D03FA600B68B50 /* libRestKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRestKit.a;
-			remoteRef = ADC6566316BC662800B28F58 /* PBXContainerItemProxy */;
+			remoteRef = AD3EBC6016D03FA600B68B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		ADC6566616BC662800B28F58 /* RestKitTests.octest */ = {
+		AD3EBC6316D03FA600B68B50 /* RestKitTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitTests.octest;
-			remoteRef = ADC6566516BC662800B28F58 /* PBXContainerItemProxy */;
+			remoteRef = AD3EBC6216D03FA600B68B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		ADC6566816BC662800B28F58 /* RestKit.framework */ = {
+		AD3EBC6516D03FA600B68B50 /* RestKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = RestKit.framework;
-			remoteRef = ADC6566716BC662800B28F58 /* PBXContainerItemProxy */;
+			remoteRef = AD3EBC6416D03FA600B68B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		ADC6566A16BC662800B28F58 /* RestKitFrameworkTests.octest */ = {
+		AD3EBC6716D03FA600B68B50 /* RestKitFrameworkTests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = RestKitFrameworkTests.octest;
-			remoteRef = ADC6566916BC662800B28F58 /* PBXContainerItemProxy */;
+			remoteRef = AD3EBC6616D03FA600B68B50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -572,11 +564,6 @@
 			isa = PBXTargetDependency;
 			target = AD0467B8168B369700F4D9AD /* MusicNewsShuffler */;
 			targetProxy = AD0467E5168B369800F4D9AD /* PBXContainerItemProxy */;
-		};
-		ADC6566C16BC680800B28F58 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = ADC6566B16BC680800B28F58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
