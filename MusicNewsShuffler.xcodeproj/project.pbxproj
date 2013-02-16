@@ -12,7 +12,7 @@
 		AD0467C2168B369700F4D9AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467C1168B369700F4D9AD /* CoreGraphics.framework */; };
 		AD0467C8168B369700F4D9AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0467C6168B369700F4D9AD /* InfoPlist.strings */; };
 		AD0467CA168B369700F4D9AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467C9168B369700F4D9AD /* main.m */; };
-		AD0467CE168B369700F4D9AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467CD168B369700F4D9AD /* AppDelegate.m */; };
+		AD0467CE168B369700F4D9AD /* MNSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467CD168B369700F4D9AD /* MNSAppDelegate.m */; };
 		AD0467D0168B369700F4D9AD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467CF168B369700F4D9AD /* Default.png */; };
 		AD0467D2168B369700F4D9AD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467D1168B369700F4D9AD /* Default@2x.png */; };
 		AD0467D4168B369700F4D9AD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD0467D3168B369700F4D9AD /* Default-568h@2x.png */; };
@@ -24,11 +24,11 @@
 		AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046802168B54CB00F4D9AD /* RXMLElement.m */; };
 		AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046805168B552F00F4D9AD /* libz.dylib */; };
 		AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD046809168B586900F4D9AD /* Storyboard.storyboard */; };
-		AD04680D168B598300F4D9AD /* ArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* ArticleTableCell.m */; };
-		AD046810168B5A4100F4D9AD /* ShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */; };
-		AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */; };
-		AD046816168B718200F4D9AD /* RSSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046815168B718200F4D9AD /* RSSArticle.m */; };
-		AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046818168B778D00F4D9AD /* ArticleViewController.m */; };
+		AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */; };
+		AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */; };
+		AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */; };
+		AD046816168B718200F4D9AD /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046815168B718200F4D9AD /* MNSArticle.m */; };
+		AD5F2FDA16CFD17F00763E52 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */; };
 		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
 		AD9E7303168BBE8F00F2D42A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */; };
@@ -40,8 +40,8 @@
 		ADAFA9381690E3240077201B /* action-location.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9341690E3240077201B /* action-location.png */; };
 		ADAFA9391690E3240077201B /* action-people.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9351690E3240077201B /* action-people.png */; };
 		ADAFA93A1690E3240077201B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9361690E3240077201B /* facebook.png */; };
-		ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */; };
-		ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */; };
+		ADAFA93D1690E4810077201B /* MNSSmartShufflerLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */; };
+		ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */; };
 		ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563A16BC501900B28F58 /* CFNetwork.framework */; };
 		ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563C16BC502700B28F58 /* CoreData.framework */; };
 		ADC6563E16BC505000B28F58 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046807168B553E00F4D9AD /* libxml2.dylib */; };
@@ -59,7 +59,7 @@
 			containerPortal = AD0467B0168B369700F4D9AD /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AD0467B8168B369700F4D9AD;
-			remoteInfo = "Music News Shuffler";
+			remoteInfo = MusicNewsShuffler;
 		};
 		ADC6566316BC662800B28F58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -107,8 +107,8 @@
 		AD0467C7168B369700F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD0467C9168B369700F4D9AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AD0467CB168B369700F4D9AD /* MusicNewsShuffler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicNewsShuffler-Prefix.pch"; sourceTree = "<group>"; };
-		AD0467CC168B369700F4D9AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		AD0467CD168B369700F4D9AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD0467CC168B369700F4D9AD /* MNSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNSAppDelegate.h; sourceTree = "<group>"; };
+		AD0467CD168B369700F4D9AD /* MNSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNSAppDelegate.m; sourceTree = "<group>"; };
 		AD0467CF168B369700F4D9AD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AD0467D1168B369700F4D9AD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AD0467D3168B369700F4D9AD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -123,16 +123,16 @@
 		AD046805168B552F00F4D9AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AD046807168B553E00F4D9AD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		AD046809168B586900F4D9AD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		AD04680B168B598300F4D9AD /* ArticleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleTableCell.h; sourceTree = "<group>"; };
-		AD04680C168B598300F4D9AD /* ArticleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTableCell.m; sourceTree = "<group>"; };
-		AD04680E168B5A4100F4D9AD /* ShufflerFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflerFeedController.h; sourceTree = "<group>"; };
-		AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflerFeedController.m; sourceTree = "<group>"; };
-		AD046811168B6C4800F4D9AD /* RSSFeedsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedsLoader.h; sourceTree = "<group>"; };
-		AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSFeedsLoader.m; sourceTree = "<group>"; };
-		AD046814168B718200F4D9AD /* RSSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSArticle.h; sourceTree = "<group>"; };
-		AD046815168B718200F4D9AD /* RSSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSArticle.m; sourceTree = "<group>"; };
-		AD046817168B778D00F4D9AD /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleViewController.h; path = ../ArticleViewController.h; sourceTree = "<group>"; };
-		AD046818168B778D00F4D9AD /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleViewController.m; path = ../ArticleViewController.m; sourceTree = "<group>"; };
+		AD04680B168B598300F4D9AD /* MNSArticleTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticleTableCell.h; sourceTree = "<group>"; };
+		AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticleTableCell.m; sourceTree = "<group>"; };
+		AD04680E168B5A4100F4D9AD /* MNSShufflerFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSShufflerFeedController.h; sourceTree = "<group>"; };
+		AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSShufflerFeedController.m; sourceTree = "<group>"; };
+		AD046811168B6C4800F4D9AD /* MNSFeedsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSFeedsLoader.h; sourceTree = "<group>"; };
+		AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSFeedsLoader.m; sourceTree = "<group>"; };
+		AD046814168B718200F4D9AD /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
+		AD046815168B718200F4D9AD /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
+		AD1B5CBA16CFCEA90070FE8C /* ArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArticleViewController.h; path = "../../../../../Music News Shuffler/ArticleViewController.h"; sourceTree = "<group>"; };
+		AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArticleViewController.m; path = "../../../../../Music News Shuffler/ArticleViewController.m"; sourceTree = "<group>"; };
 		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 		ADAFA9341690E3240077201B /* action-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-location.png"; sourceTree = "<group>"; };
 		ADAFA9351690E3240077201B /* action-people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-people.png"; sourceTree = "<group>"; };
 		ADAFA9361690E3240077201B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
-		ADAFA93B1690E4810077201B /* SmartShuffleLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartShuffleLoginViewController.h; sourceTree = "<group>"; };
-		ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleLoginViewController.m; sourceTree = "<group>"; };
-		ADAFA93E1690E9F40077201B /* SmartShuffleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartShuffleViewController.h; sourceTree = "<group>"; };
-		ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartShuffleViewController.m; sourceTree = "<group>"; };
+		ADAFA93B1690E4810077201B /* MNSSmartShufflerLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSSmartShufflerLoginViewController.h; sourceTree = "<group>"; };
+		ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSSmartShufflerLoginViewController.m; sourceTree = "<group>"; };
+		ADAFA93E1690E9F40077201B /* MNSSmartShufflerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSSmartShufflerViewController.h; sourceTree = "<group>"; };
+		ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSSmartShufflerViewController.m; sourceTree = "<group>"; };
 		ADC6563A16BC501900B28F58 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		ADC6563C16BC502700B28F58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -245,28 +245,27 @@
 			isa = PBXGroup;
 			children = (
 				ADAFA9301690E30F0077201B /* Facebook */,
-				AD0467CC168B369700F4D9AD /* AppDelegate.h */,
-				AD0467CD168B369700F4D9AD /* AppDelegate.m */,
-				ADAFA93E1690E9F40077201B /* SmartShuffleViewController.h */,
-				ADAFA93F1690E9F40077201B /* SmartShuffleViewController.m */,
-				ADAFA93B1690E4810077201B /* SmartShuffleLoginViewController.h */,
-				ADAFA93C1690E4810077201B /* SmartShuffleLoginViewController.m */,
+				AD0467CC168B369700F4D9AD /* MNSAppDelegate.h */,
+				AD0467CD168B369700F4D9AD /* MNSAppDelegate.m */,
+				ADAFA93E1690E9F40077201B /* MNSSmartShufflerViewController.h */,
+				ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */,
+				ADAFA93B1690E4810077201B /* MNSSmartShufflerLoginViewController.h */,
+				ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */,
 				AD046809168B586900F4D9AD /* Storyboard.storyboard */,
-				AD04680E168B5A4100F4D9AD /* ShufflerFeedController.h */,
-				AD04680F168B5A4100F4D9AD /* ShufflerFeedController.m */,
-				AD046811168B6C4800F4D9AD /* RSSFeedsLoader.h */,
-				AD046812168B6C4800F4D9AD /* RSSFeedsLoader.m */,
-				AD046814168B718200F4D9AD /* RSSArticle.h */,
-				AD046815168B718200F4D9AD /* RSSArticle.m */,
-				AD04680B168B598300F4D9AD /* ArticleTableCell.h */,
-				AD04680C168B598300F4D9AD /* ArticleTableCell.m */,
-				AD046817168B778D00F4D9AD /* ArticleViewController.h */,
-				AD046818168B778D00F4D9AD /* ArticleViewController.m */,
+				AD04680E168B5A4100F4D9AD /* MNSShufflerFeedController.h */,
+				AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */,
+				AD046811168B6C4800F4D9AD /* MNSFeedsLoader.h */,
+				AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */,
+				AD046814168B718200F4D9AD /* MNSArticle.h */,
+				AD046815168B718200F4D9AD /* MNSArticle.m */,
+				AD1B5CBA16CFCEA90070FE8C /* ArticleViewController.h */,
+				AD1B5CBB16CFCEA90070FE8C /* ArticleViewController.m */,
+				AD04680B168B598300F4D9AD /* MNSArticleTableCell.h */,
+				AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */,
 				AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */,
 				AD0467C4168B369700F4D9AD /* Supporting Files */,
 			);
-			name = MusicNewsShuffler;
-			path = "Music News Shuffler";
+			path = MusicNewsShuffler;
 			sourceTree = "<group>";
 		};
 		AD0467C4168B369700F4D9AD /* Supporting Files */ = {
@@ -290,8 +289,7 @@
 				AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */,
 				AD0467E8168B369800F4D9AD /* Supporting Files */,
 			);
-			name = MusicNewsShufflerTests;
-			path = "Music News ShufflerTests";
+			path = MusicNewsShufflerTests;
 			sourceTree = "<group>";
 		};
 		AD0467E8168B369800F4D9AD /* Supporting Files */ = {
@@ -359,7 +357,7 @@
 				ADC6566C16BC680800B28F58 /* PBXTargetDependency */,
 			);
 			name = MusicNewsShuffler;
-			productName = "Music News Shuffler";
+			productName = MusicNewsShuffler;
 			productReference = AD0467B9168B369700F4D9AD /* MusicNewsShuffler.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -378,7 +376,7 @@
 				AD0467E6168B369800F4D9AD /* PBXTargetDependency */,
 			);
 			name = MusicNewsShufflerTests;
-			productName = "Music News ShufflerTests";
+			productName = MusicNewsShufflerTests;
 			productReference = AD0467E0168B369800F4D9AD /* MusicNewsShufflerTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
@@ -498,16 +496,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0467CA168B369700F4D9AD /* main.m in Sources */,
-				AD0467CE168B369700F4D9AD /* AppDelegate.m in Sources */,
+				AD0467CE168B369700F4D9AD /* MNSAppDelegate.m in Sources */,
 				AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */,
-				AD04680D168B598300F4D9AD /* ArticleTableCell.m in Sources */,
-				AD046810168B5A4100F4D9AD /* ShufflerFeedController.m in Sources */,
-				AD046813168B6C4800F4D9AD /* RSSFeedsLoader.m in Sources */,
-				AD046816168B718200F4D9AD /* RSSArticle.m in Sources */,
-				AD046819168B778D00F4D9AD /* ArticleViewController.m in Sources */,
-				ADAFA93D1690E4810077201B /* SmartShuffleLoginViewController.m in Sources */,
-				ADAFA9401690E9F40077201B /* SmartShuffleViewController.m in Sources */,
+				AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */,
+				AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */,
+				AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */,
+				AD046816168B718200F4D9AD /* MNSArticle.m in Sources */,
+				ADAFA93D1690E4810077201B /* MNSSmartShufflerLoginViewController.m in Sources */,
+				ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */,
 				AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */,
+				AD5F2FDA16CFD17F00763E52 /* ArticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,12 +614,12 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/MusicNewsShuffler-Prefix.pch";
+				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/libxml2,
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
 				);
-				INFOPLIST_FILE = "Music News Shuffler/MusicNewsShuffler-Info.plist";
+				INFOPLIST_FILE = "MusicNewsShuffler/MusicNewsShuffler-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
@@ -644,12 +642,12 @@
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/MusicNewsShuffler-Prefix.pch";
+				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/libxml2,
 					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
 				);
-				INFOPLIST_FILE = "Music News Shuffler/MusicNewsShuffler-Info.plist";
+				INFOPLIST_FILE = "MusicNewsShuffler/MusicNewsShuffler-Info.plist";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
@@ -663,14 +661,14 @@
 		AD0467F6168B369800F4D9AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Music News Shuffler.app/Music News Shuffler";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MusicNewsShuffler.app/MusicNewsShuffler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				INFOPLIST_FILE = "Music News ShufflerTests/MusicNewsShufflerTests-Info.plist";
+				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
+				INFOPLIST_FILE = "MusicNewsShufflerTests/MusicNewsShufflerTests-Info.plist";
 				PRODUCT_NAME = MusicNewsShufflerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -680,14 +678,14 @@
 		AD0467F7168B369800F4D9AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Music News Shuffler.app/Music News Shuffler";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MusicNewsShuffler.app/MusicNewsShuffler";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Music News Shuffler/Music News Shuffler-Prefix.pch";
-				INFOPLIST_FILE = "Music News ShufflerTests/MusicNewsShufflerTests-Info.plist";
+				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
+				INFOPLIST_FILE = "MusicNewsShufflerTests/MusicNewsShufflerTests-Info.plist";
 				PRODUCT_NAME = MusicNewsShufflerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

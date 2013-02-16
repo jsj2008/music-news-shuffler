@@ -9,15 +9,16 @@
 #import <Foundation/Foundation.h>
 @class RXMLElement;
 
-@interface RSSArticle : NSObject
+@interface MNSArticle : NSObject
 
-@property NSString *title;
-@property NSString *description;
+@property NSString *author;
+@property NSString *content;
+@property NSDate *pubdate;
 @property NSURL *url;
-@property NSDate *date;
+@property NSString *title;
 @property NSString *articleType;
-@property NSString *articleAuthor;
 
-+ (RSSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement;
+
++ (MNSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement;
 
 @end

@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "SmartShuffleViewController.h"
-#import "SmartShuffleLoginViewController.h"
+#import "MNSSmartShufflerViewController.h"
+#import "MNSSmartShufflerLoginViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "AppDelegate.h"
+#import "MNSAppDelegate.h"
 
 
 
-@interface SmartShuffleViewController ()
+@interface MNSSmartShufflerViewController ()
 
 @end
 
-@implementation SmartShuffleViewController
+@implementation MNSSmartShufflerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,7 +38,7 @@
      name:FBSessionStateChangedNotification
      object:nil];
     
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    MNSAppDelegate *appDelegate = (MNSAppDelegate*)[[UIApplication sharedApplication] delegate];
     
     if (FBSession.activeSession.isOpen){
         NSLog(@"SmartShuffleViewController: Opened session");
@@ -99,7 +99,7 @@
 {
     NSLog(@"SmartShuffleViewController: Logging out");
     self.title = @"Smart Feed";
-    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    MNSAppDelegate* appDelegate = (MNSAppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate performLogout];
 
 }
@@ -114,7 +114,7 @@
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
 
-        SmartShuffleLoginViewController *loginView = (SmartShuffleLoginViewController*)self.presentedViewController;
+        MNSSmartShufflerLoginViewController *loginView = (MNSSmartShufflerLoginViewController*)self.presentedViewController;
         [loginView dismissLoginView];
         
         NSLog(@"SmartShuffleViewController: Logged in");

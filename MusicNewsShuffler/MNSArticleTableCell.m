@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "ArticleTableCell.h"
+#import "MNSArticleTableCell.h"
 
-@implementation ArticleTableCell
+@implementation MNSArticleTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

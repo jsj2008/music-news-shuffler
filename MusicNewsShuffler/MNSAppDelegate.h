@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
-#import <RestKit/RestKit.h>
 
 extern NSString *const FBSessionStateChangedNotification;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
+@interface MNSAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UITabBarController* tabBarController;
 @property (strong, nonatomic) UIWindow *window;

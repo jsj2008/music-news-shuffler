@@ -6,20 +6,32 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "MNSAppDelegate.h"
 #import "FacebookSDK/FacebookSDK.h"
-#import "SmartShuffleLoginViewController.h"
-#import "SmartShuffleViewController.h"
+#import "MNSSmartShufflerLoginViewController.h"
+#import "MNSSmartShufflerViewController.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
 
 NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBSessionStateChangedNotification";
 
-
-@implementation AppDelegate
+@implementation MNSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:3000/"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    
+    // Enable Activity Indicator Spinner
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    // Initialize managed object store
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc]
+                                                initWithManagedObjectModel:managedObjectModel];
+    objectManager.managedObjectStore = managedObjectStore;
+    
     return YES;
 }
 							
@@ -55,7 +67,7 @@ NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBS
 
 - (void)showSmartShuffleLoginView
 {
-    SmartShuffleViewController* smartShuffleViewController = (SmartShuffleViewController*)[[self tabBarController] selectedViewController];
+    MNSSmartShufflerViewController* smartShuffleViewController = (MNSSmartShufflerViewController*)[[self tabBarController] selectedViewController];
     NSLog(@"AppDelegate: Show the login view");
     [smartShuffleViewController showLoginView];
 }

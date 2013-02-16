@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ShufflerFeedController : UITableViewController
+@interface MNSShufflerFeedController : UITableViewController
 
 @end

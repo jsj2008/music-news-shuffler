@@ -6,16 +6,16 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "RSSFeedsLoader.h"
+#import "MNSFeedsLoader.h"
 #import "RXMLElement.h"
-#import "RSSArticle.h"
+#import "MNSArticle.h"
 
 
 
 #define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 
-@implementation RSSFeedsLoader
+@implementation MNSFeedsLoader
 
 
 - (NSMutableArray*)loadTypeAFeedWithURL:(NSString *)url descriptionTag:(NSString *)descTag
@@ -28,9 +28,9 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
+            MNSArticle *article = [MNSArticle createRSSArticleWithXMLElement:e];
             article.articleType = @"A";
-            article.description = [e child:descTag].text;
+            article.content = [e child:descTag].text;
             [articles addObject:article];
             
         }
@@ -53,7 +53,7 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
+            MNSArticle *article = [MNSArticle createRSSArticleWithXMLElement:e];
             article.articleType = @"B";
             [articles addObject:article];
             
@@ -77,10 +77,10 @@
         NSMutableArray* articles = [NSMutableArray arrayWithCapacity:rawRSSItems.count];
         
         for (RXMLElement* e in rawRSSItems) {
-            RSSArticle *article = [RSSArticle createRSSArticleWithXMLElement:e];
+            MNSArticle *article = [MNSArticle createRSSArticleWithXMLElement:e];
             NSString* fullDesc = [[e child:descTag].text
                                   stringByAppendingFormat:@"<p> To read full article go to: %@", article.url];
-            article.description = fullDesc;
+            article.content = fullDesc;
             article.articleType = @"C";
             [articles addObject:article];
             
@@ -106,7 +106,7 @@
         [shufflerFeedArray addObjectsFromArray:[self loadTypeCFeedWithURL:@"http://noisey.vice.com/rss"
                                                 descriptionTag:@"description"]];
         
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"pubdate" ascending:NO];
         [shufflerFeedArray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
         
         c(shufflerFeedArray);

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 typedef void (^RSSLoaderCompleteBlock)(NSArray* results);
 
-@interface RSSFeedsLoader : NSObject
+@interface MNSFeedsLoader : NSObject
 
 -(NSMutableArray*)loadTypeAFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
 -(NSMutableArray*)loadTypeBFeedWithURL:(NSString*)url;

@@ -6,21 +6,21 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "RSSArticle.h"
+#import "MNSArticle.h"
 #import "RXMLElement.h"
 
-@implementation RSSArticle
+@implementation MNSArticle
 
-+ (RSSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement
++ (MNSArticle *)createRSSArticleWithXMLElement:(RXMLElement *)XMLElement
 {
-    RSSArticle* article = [[RSSArticle alloc] init];
+    MNSArticle* article = [[MNSArticle alloc] init];
     article.title = [[XMLElement child:@"title" ] text];
     article.url = [NSURL URLWithString:[[XMLElement child:@"link"] text]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss ZZZZ"];
     NSDate *dateFromString = [[NSDate alloc] init];
     dateFromString = [dateFormatter dateFromString:[XMLElement child:@"pubDate"].text];
-    article.date = dateFromString;
+    article.pubdate = dateFromString;
     return article;
 
 }

@@ -6,22 +6,22 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "ShufflerFeedController.h"
-#import "ArticleTableCell.h"
-#import "RSSFeedsLoader.h"
-#import "RSSArticle.h"
+#import "MNSShufflerFeedController.h"
+#import "MNSArticleTableCell.h"
+#import "MNSFeedsLoader.h"
+#import "MNSArticle.h"
 #import "ArticleViewController.h"
 
 
 
-@interface ShufflerFeedController () {
+@interface MNSShufflerFeedController () {
     NSArray *_objects;
     UIRefreshControl *refreshControl;
 }
 @end
 
 
-@implementation ShufflerFeedController
+@implementation MNSShufflerFeedController
 
 - (void)viewDidLoad {
     
@@ -49,7 +49,7 @@
 
 -(void)refreshFeed
 {
-    RSSFeedsLoader* rss = [[RSSFeedsLoader alloc] init];
+    MNSFeedsLoader* rss = [[MNSFeedsLoader alloc] init];
     
     [rss fetchRSSWithCompletion:^(NSArray* results) {
         
@@ -96,14 +96,14 @@
     
     static NSString *tableIdentifier = @"ArticleTableCell";
     
-    ArticleTableCell *cell = (ArticleTableCell *)[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
+    MNSArticleTableCell *cell = (MNSArticleTableCell *)[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
     if (cell == nil)
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ArticleTableCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
-    RSSArticle *currItem = _objects[indexPath.row];
+    MNSArticle *currItem = _objects[indexPath.row];
     
     cell.title.text = currItem.title;
     
@@ -116,7 +116,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        RSSArticle* object = _objects[indexPath.row];
+        MNSArticle* object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

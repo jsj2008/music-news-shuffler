@@ -6,13 +6,15 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "SmartShuffleLoginViewController.h"
+#import "MNSSmartShufflerLoginViewController.h"
+#import "MNSAppDelegate.h"
 
-@interface SmartShuffleLoginViewController ()
+
+@interface MNSSmartShufflerLoginViewController ()
 
 @end
 
-@implementation SmartShuffleLoginViewController
+@implementation MNSSmartShufflerLoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,7 +57,7 @@
     
     NSLog(@"SmartShuffleLoginVewController: Perform Login");
     [self.spinner startAnimating];
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    MNSAppDelegate *appDelegate = (MNSAppDelegate*)[[UIApplication sharedApplication] delegate];
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
     [appDelegate openSessionWithAllowLoginUI:YES];

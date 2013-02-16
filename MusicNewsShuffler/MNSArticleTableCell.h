@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArticleTableCell : UITableViewCell
+@interface MNSArticleTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
 
 @end

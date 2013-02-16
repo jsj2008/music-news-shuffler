@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
-@interface SmartShuffleLoginViewController : UIViewController
+@interface MNSSmartShufflerLoginViewController : UIViewController
 
 - (IBAction)cancelLogin:(id)sender;
 

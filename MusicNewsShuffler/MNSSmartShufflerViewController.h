@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SmartShuffleViewController : UIViewController
+@interface MNSSmartShufflerViewController : UIViewController
 
 - (IBAction)performLogout:(id)sender;
 - (void)showLoginView;
