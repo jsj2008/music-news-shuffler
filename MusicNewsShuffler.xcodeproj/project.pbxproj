@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183CFD13D82A475A9D29998A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3425C196FACB44D18A001786 /* libPods.a */; };
 		AD0467BE168B369700F4D9AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BD168B369700F4D9AD /* UIKit.framework */; };
 		AD0467C0168B369700F4D9AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BF168B369700F4D9AD /* Foundation.framework */; };
 		AD0467C2168B369700F4D9AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467C1168B369700F4D9AD /* CoreGraphics.framework */; };
@@ -21,7 +22,6 @@
 		AD0467E4168B369800F4D9AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0467BF168B369700F4D9AD /* Foundation.framework */; };
 		AD0467EC168B369800F4D9AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD0467EA168B369800F4D9AD /* InfoPlist.strings */; };
 		AD0467EF168B369800F4D9AD /* MusicNewsShufflerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */; };
-		AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046802168B54CB00F4D9AD /* RXMLElement.m */; };
 		AD046806168B552F00F4D9AD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046805168B552F00F4D9AD /* libz.dylib */; };
 		AD04680A168B586900F4D9AD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD046809168B586900F4D9AD /* Storyboard.storyboard */; };
 		AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680C168B598300F4D9AD /* MNSArticleTableCell.m */; };
@@ -29,9 +29,6 @@
 		AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */; };
 		AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */; };
 		AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */; };
-		AD3EBC2216D03A6F00B68B50 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */; };
-		AD3EBC2316D03A6F00B68B50 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */; };
-		AD3EBC6816D03FAE00B68B50 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD3EBC6116D03FA600B68B50 /* libRestKit.a */; };
 		AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */; };
 		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
@@ -48,7 +45,6 @@
 		ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */; };
 		ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563A16BC501900B28F58 /* CFNetwork.framework */; };
 		ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563C16BC502700B28F58 /* CoreData.framework */; };
-		ADC6563E16BC505000B28F58 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AD046807168B553E00F4D9AD /* libxml2.dylib */; };
 		ADC6564016BC505A00B28F58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */; };
 		ADC6564216BC506D00B28F58 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564116BC506D00B28F58 /* QuartzCore.framework */; };
 		ADC6564416BC507600B28F58 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6564316BC507600B28F58 /* Security.framework */; };
@@ -64,37 +60,11 @@
 			remoteGlobalIDString = AD0467B8168B369700F4D9AD;
 			remoteInfo = MusicNewsShuffler;
 		};
-		AD3EBC6016D03FA600B68B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D1614564E810060A5C5;
-			remoteInfo = RestKit;
-		};
-		AD3EBC6216D03FA600B68B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160D2614564E820060A5C5;
-			remoteInfo = RestKitTests;
-		};
-		AD3EBC6416D03FA600B68B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E62145651060060A5C5;
-			remoteInfo = RestKitFramework;
-		};
-		AD3EBC6616D03FA600B68B50 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 25160E78145651060060A5C5;
-			remoteInfo = RestKitFrameworkTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07FD9B72521E459C8ECFB994 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3425C196FACB44D18A001786 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0467B9168B369700F4D9AD /* MusicNewsShuffler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNewsShuffler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD0467BD168B369700F4D9AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD0467BF168B369700F4D9AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,8 +84,6 @@
 		AD0467EB168B369800F4D9AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD0467ED168B369800F4D9AD /* MusicNewsShufflerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MusicNewsShufflerTests.h; sourceTree = "<group>"; };
 		AD0467EE168B369800F4D9AD /* MusicNewsShufflerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MusicNewsShufflerTests.m; sourceTree = "<group>"; };
-		AD046801168B54CB00F4D9AD /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
-		AD046802168B54CB00F4D9AD /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
 		AD046805168B552F00F4D9AD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AD046807168B553E00F4D9AD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		AD046809168B586900F4D9AD /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -131,10 +99,6 @@
 		AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSDataModel.m; sourceTree = "<group>"; };
 		AD3EBC1B16D030BB00B68B50 /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
 		AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
-		AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		AD3EBC2016D03A6F00B68B50 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../../../../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
@@ -163,13 +127,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3EBC6816D03FAE00B68B50 /* libRestKit.a in Frameworks */,
 				ADC6564816BC56AA00B28F58 /* SenTestingKit.framework in Frameworks */,
 				ADC6564616BC507D00B28F58 /* SystemConfiguration.framework in Frameworks */,
 				ADC6564416BC507600B28F58 /* Security.framework in Frameworks */,
 				ADC6564216BC506D00B28F58 /* QuartzCore.framework in Frameworks */,
 				ADC6564016BC505A00B28F58 /* MobileCoreServices.framework in Frameworks */,
-				ADC6563E16BC505000B28F58 /* libxml2.dylib in Frameworks */,
 				ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */,
 				ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */,
 				AD9E730B168BBF3200F2D42A /* Social.framework in Frameworks */,
@@ -180,6 +142,7 @@
 				AD0467C0168B369700F4D9AD /* Foundation.framework in Frameworks */,
 				AD0467C2168B369700F4D9AD /* CoreGraphics.framework in Frameworks */,
 				AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */,
+				183CFD13D82A475A9D29998A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,11 +162,11 @@
 		AD0467AE168B369700F4D9AD = {
 			isa = PBXGroup;
 			children = (
-				AD3EBC2416D03C1D00B68B50 /* Libraries */,
 				AD0467C3168B369700F4D9AD /* MusicNewsShuffler */,
 				AD0467E7168B369800F4D9AD /* MusicNewsShufflerTests */,
 				AD0467BC168B369700F4D9AD /* Frameworks */,
 				AD0467BA168B369700F4D9AD /* Products */,
+				07FD9B72521E459C8ECFB994 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,7 +182,6 @@
 		AD0467BC168B369700F4D9AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */,
 				ADC6564516BC507D00B28F58 /* SystemConfiguration.framework */,
 				ADC6564316BC507600B28F58 /* Security.framework */,
 				ADC6564116BC506D00B28F58 /* QuartzCore.framework */,
@@ -238,6 +200,7 @@
 				AD0467BF168B369700F4D9AD /* Foundation.framework */,
 				AD0467C1168B369700F4D9AD /* CoreGraphics.framework */,
 				AD0467E1168B369800F4D9AD /* SenTestingKit.framework */,
+				3425C196FACB44D18A001786 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,15 +263,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AD046800168B54CB00F4D9AD /* RaptureXML */ = {
-			isa = PBXGroup;
-			children = (
-				AD046801168B54CB00F4D9AD /* RXMLElement.h */,
-				AD046802168B54CB00F4D9AD /* RXMLElement.m */,
-			);
-			path = RaptureXML;
-			sourceTree = "<group>";
-		};
 		AD3EBC1616D01B8200B68B50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,36 +281,6 @@
 				AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */,
 			);
 			name = CoreData;
-			sourceTree = "<group>";
-		};
-		AD3EBC1E16D03A6F00B68B50 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				AD3EBC1F16D03A6F00B68B50 /* SVProgressHUD.bundle */,
-				AD3EBC2016D03A6F00B68B50 /* SVProgressHUD.h */,
-				AD3EBC2116D03A6F00B68B50 /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		AD3EBC2416D03C1D00B68B50 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				AD3EBC1E16D03A6F00B68B50 /* SVProgressHUD */,
-				AD046800168B54CB00F4D9AD /* RaptureXML */,
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		AD3EBC5A16D03FA600B68B50 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AD3EBC6116D03FA600B68B50 /* libRestKit.a */,
-				AD3EBC6316D03FA600B68B50 /* RestKitTests.octest */,
-				AD3EBC6516D03FA600B68B50 /* RestKit.framework */,
-				AD3EBC6716D03FA600B68B50 /* RestKitFrameworkTests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		ADAFA9301690E30F0077201B /* Facebook */ = {
@@ -388,6 +312,7 @@
 				AD0467B5168B369700F4D9AD /* Sources */,
 				AD0467B6168B369700F4D9AD /* Frameworks */,
 				AD0467B7168B369700F4D9AD /* Resources */,
+				3E66D29BB5604C29BE86052F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -437,12 +362,6 @@
 			mainGroup = AD0467AE168B369700F4D9AD;
 			productRefGroup = AD0467BA168B369700F4D9AD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AD3EBC5A16D03FA600B68B50 /* Products */;
-					ProjectRef = AD3EBC5916D03FA600B68B50 /* RestKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AD0467B8168B369700F4D9AD /* MusicNewsShuffler */,
@@ -450,37 +369,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AD3EBC6116D03FA600B68B50 /* libRestKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRestKit.a;
-			remoteRef = AD3EBC6016D03FA600B68B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AD3EBC6316D03FA600B68B50 /* RestKitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitTests.octest;
-			remoteRef = AD3EBC6216D03FA600B68B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AD3EBC6516D03FA600B68B50 /* RestKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RestKit.framework;
-			remoteRef = AD3EBC6416D03FA600B68B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AD3EBC6716D03FA600B68B50 /* RestKitFrameworkTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RestKitFrameworkTests.octest;
-			remoteRef = AD3EBC6616D03FA600B68B50 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AD0467B7168B369700F4D9AD /* Resources */ = {
@@ -498,7 +386,6 @@
 				ADAFA9381690E3240077201B /* action-location.png in Resources */,
 				ADAFA9391690E3240077201B /* action-people.png in Resources */,
 				ADAFA93A1690E3240077201B /* facebook.png in Resources */,
-				AD3EBC2216D03A6F00B68B50 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,6 +400,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E66D29BB5604C29BE86052F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		AD0467DE168B369800F4D9AD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -535,7 +436,6 @@
 			files = (
 				AD0467CA168B369700F4D9AD /* main.m in Sources */,
 				AD0467CE168B369700F4D9AD /* MNSAppDelegate.m in Sources */,
-				AD046803168B54CB00F4D9AD /* RXMLElement.m in Sources */,
 				AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */,
 				AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */,
 				AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */,
@@ -545,7 +445,6 @@
 				AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */,
 				AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */,
 				AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */,
-				AD3EBC2316D03A6F00B68B50 /* SVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,8 +538,8 @@
 		};
 		AD0467F3168B369800F4D9AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07FD9B72521E459C8ECFB994 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FacebookSDK\"",
@@ -650,25 +549,32 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2,
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
-				);
 				INFOPLIST_FILE = "MusicNewsShuffler/MusicNewsShuffler-Info.plist";
 				OTHER_LDFLAGS = (
-					"-lsqlite3.0",
 					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = MusicNewsShuffler;
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		AD0467F4168B369800F4D9AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07FD9B72521E459C8ECFB994 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/FacebookSDK\"",
@@ -678,17 +584,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicNewsShuffler/MusicNewsShuffler-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					/usr/include/libxml2,
-					"\"$(BUILT_PRODUCTS_DIR)/../../Headers\"/**",
-				);
 				INFOPLIST_FILE = "MusicNewsShuffler/MusicNewsShuffler-Info.plist";
 				OTHER_LDFLAGS = (
-					"-lsqlite3.0",
 					"-ObjC",
+					"-framework",
+					CFNetwork,
+					"-framework",
+					CoreData,
+					"-framework",
+					MobileCoreServices,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Security,
+					"-framework",
+					SystemConfiguration,
+					"-lsqlite3.0",
 				);
 				PRODUCT_NAME = MusicNewsShuffler;
-				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
