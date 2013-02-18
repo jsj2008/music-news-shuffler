@@ -21,6 +21,8 @@
 {
     NSArray *_objects;
     UIRefreshControl *refreshControl;
+    MNSArticle *_lastArticle;
+    NSString *_lastArictlePubdate;
 }
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
@@ -75,7 +77,19 @@
                                                 keyPath:nil
                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost:3000/rss_feed_loader/get_feed.json"];
+    NSString *baseURLString = @"http://localhost:3000/rss_feed_loader/get_feed.json";
+    NSString *requestURLString;
+    if (_lastArictlePubdate) {
+        requestURLString = [NSString stringWithFormat:@"%@?last_pubdate=%@", baseURLString,_lastArictlePubdate];
+    } else {
+        requestURLString = baseURLString;
+    }
+    
+    NSLog(@"requestURLString: %@", requestURLString);
+
+    //NSURL *url = [NSURL URLWithString:@"http://localhost:3000/rss_feed_loader/get_feed.json"];
+    NSURL *url = [NSURL URLWithString:requestURLString];
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc]
                                                 initWithRequest:request
@@ -86,9 +100,26 @@
     operation.managedObjectContext = store.mainQueueManagedObjectContext;
     
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        _objects = mappingResult.array;
+        
+        if (_objects) {
+            //_objects = @[_objects, mappingResult.array];
+            //_objects = [NSArray ]
+            NSMutableArray *temp = [NSMutableArray arrayWithArray:_objects];
+            [temp addObjectsFromArray:mappingResult.array];
+            _objects = [NSArray arrayWithArray:temp];
+            NSLog(@"Objects count: %lu", (unsigned long)[_objects count]);
+        } else {
+            _objects = mappingResult.array;
+        }
+        
+        
+        _lastArticle = [_objects objectAtIndex:[_objects count]-1];
+        _lastArictlePubdate = _lastArticle.pubdate;
+        NSLog(@"Last pubdate is: %@", _lastArictlePubdate);
 //        NSLog(@"Result mapped: %@", mappingResult);
         [SVProgressHUD dismiss];
+        [refreshControl endRefreshing];
+        [SVProgressHUD showSuccessWithStatus:@"Yey!"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [self.tableView reloadData];
@@ -164,12 +195,11 @@
         cell = [nib objectAtIndex:0];
     }
     
-    MNSArticle *currItem = _objects[indexPath.row];
-    
+    MNSArticle *currItem = _objects[indexPath.row];    
     cell.title.text = currItem.title;
     
 //    MNSArticle *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSLog(@"This is my article: %@", currItem);
+//    NSLog(@"This is my article: %@", currItem);
 //    cell.title.text = article.title;
     return cell;
 
@@ -179,6 +209,49 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView reloadData];
+}
+
+//- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+//    CGPoint offset = aScrollView.contentOffset;
+//    CGRect bounds = aScrollView.bounds;
+//    CGSize size = aScrollView.contentSize;
+//    UIEdgeInsets inset = aScrollView.contentInset;
+//    float y = offset.y + bounds.size.height - inset.bottom;
+//    float h = size.height;
+//    // NSLog(@"offset: %f", offset.y);
+//    // NSLog(@"content.height: %f", size.height);
+//    // NSLog(@"bounds.height: %f", bounds.size.height);
+//    // NSLog(@"inset.top: %f", inset.top);
+//    // NSLog(@"inset.bottom: %f", inset.bottom);
+//    // NSLog(@"pos: %f of %f", y, h);
+//    
+//    float reload_distance = 50;
+//    if(y > h + reload_distance) {
+//        NSLog(@"load more rows");
+//        [self refreshFeed];
+//    }
+//}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
+{
+    NSArray *visibleRows = [self.tableView visibleCells];
+    UITableViewCell *lastVisibleCell = [visibleRows lastObject];
+    NSIndexPath *path = [self.tableView indexPathForCell:lastVisibleCell];
+    
+    // First figure out how many sections there are
+    NSInteger lastSectionIndex = [self.tableView numberOfSections] - 1;
+    
+    // Then grab the number of rows in the last section
+    NSInteger lastRowIndex = [self.tableView numberOfRowsInSection:lastSectionIndex] - 1;
+    
+    // Now just construct the index path
+    NSIndexPath *pathToLastRow = [NSIndexPath indexPathForRow:lastRowIndex inSection:lastSectionIndex];
+    
+    if(path.row == pathToLastRow.row)
+    {
+        NSLog(@"PLZ RELOAD ME");
+        [self refreshFeed];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
