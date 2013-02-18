@@ -19,4 +19,12 @@
 @dynamic type;
 @dynamic articleID;
 
+- (void)setContent:(NSString *)content
+{
+    if (!content) {
+        self.type = @"B";
+    } else {
+        self.type = @"A";
+    }
+}
 @end

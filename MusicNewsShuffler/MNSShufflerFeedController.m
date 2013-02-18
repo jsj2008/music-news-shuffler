@@ -15,7 +15,8 @@
 #import "MNSDataModel.h"
 #import "SVProgressHUD.h"
 
-
+#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define feedBaseURLString @"/rss_feed_loader/get_feed.json"
 
 @interface MNSShufflerFeedController () <NSFetchedResultsControllerDelegate>
 {
@@ -23,12 +24,14 @@
     UIRefreshControl *refreshControl;
     MNSArticle *_lastArticle;
     NSString *_lastArictlePubdate;
+    RKEntityMapping *_articleMapping;
+    RKResponseDescriptor *_responseDescriptor;
+    RKManagedObjectStore *_managedObjectStore;
+    RKObjectManager *_objectManager;
+    NSString *_requestURLString;
 }
 
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
-
 @end
-
 
 @implementation MNSShufflerFeedController
 
@@ -36,113 +39,111 @@
     
     [super viewDidLoad];
     self.title = @"News Shuffler";
-    
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self
                        action:@selector(refreshInvoked:forState:)
              forControlEvents:UIControlEventValueChanged];
     
-    NSString* fetchMessage = [NSString stringWithFormat:@"Fetching news..."];
-    refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:fetchMessage attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:11.0]}];
+    NSString* fetchMessage = [NSString stringWithFormat:@"Loading new articles..."];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]
+                                        initWithString:fetchMessage
+                                            attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica"
+                                                                                       size:11.0]}];
     
-    [self.tableView addSubview: refreshControl];
+    _articleMapping = [self mapArticle];
+    _responseDescriptor = [self responseDescriptorWithMapping:_articleMapping];
+    _managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
+    _objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
+    _objectManager.managedObjectStore = _managedObjectStore;
+    [_objectManager addResponseDescriptor:_responseDescriptor];
+    _requestURLString = feedBaseURLString;
+    _lastArictlePubdate = @"";
     
-    
+    [self.tableView addSubview:refreshControl];
     [SVProgressHUD show];
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-            [self refreshFeed];
+    dispatch_async(kBgQueue, ^{
+        [self loadData];
     });
     
-    //[self refreshFeed];
-        
 }
 
 - (void)loadData
 {    
+    _requestURLString = [NSString stringWithFormat:@"%@?last_pubdate=%@", _requestURLString,_lastArictlePubdate];
+    [_objectManager getObjectsAtPath:_requestURLString
+                         parameters:nil
+                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        if (_objects) {
+            NSMutableArray *temp = [NSMutableArray arrayWithArray:_objects];
+            [temp addObjectsFromArray:mappingResult.array];
+            _objects = [NSArray arrayWithArray:temp];
+        } else {
+            _objects = mappingResult.array;
+        }
+
+        _lastArticle = [_objects objectAtIndex:[_objects count]-1];
+        _lastArictlePubdate = _lastArticle.pubdate;
+        [refreshControl endRefreshing];
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showSuccessWithStatus:@"Yey!"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [self.tableView reloadData];
+
+    } failure:^(RKObjectRequestOperation *operation, NSError *error)
+    {
+        NSLog(@"ERROR: %@", error);
+        NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
+        [refreshControl endRefreshing];
+        [SVProgressHUD showErrorWithStatus:@"Whoops!"];
+
+    }];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc]
+//                                                initWithRequest:request
+//                                            responseDescriptors:@[responseDescriptor]];
+//    
+//        
+//    RKManagedObjectStore *store = [[MNSDataModel sharedDataModel] objectStore];
+//    operation.managedObjectCache = store.managedObjectCache;
+//    operation.managedObjectContext = store.mainQueueManagedObjectContext;
+//    
+//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+//       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+//       }];
+//    
+//    [operation start];
+}
+
+- (RKEntityMapping *)mapArticle
+{
     RKEntityMapping *articleMapping = [RKEntityMapping
                                        mappingForEntityForName:@"MNSArticle"
                                        inManagedObjectStore:[[MNSDataModel sharedDataModel] objectStore]];
     
     [articleMapping addAttributeMappingsFromDictionary:@{
-     @"id"  :   @"articleID",
-     @"url" :   @"urlString"
+                                                        @"id"  :   @"articleID",
+                                                        @"url" :   @"urlString"
      }];
     [articleMapping addAttributeMappingsFromArray:@[@"title", @"author", @"content", @"pubdate"]];
-    
-    
+    return articleMapping;
+}
+
+- (RKResponseDescriptor *)responseDescriptorWithMapping:(RKEntityMapping *)mapping
+{
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor
-                                                responseDescriptorWithMapping:articleMapping
+                                                responseDescriptorWithMapping:mapping
                                                 pathPattern:@"/rss_feed_loader/get_feed.json"
                                                 keyPath:nil
                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    
-    NSString *baseURLString = @"http://localhost:3000/rss_feed_loader/get_feed.json";
-    NSString *requestURLString;
-    if (_lastArictlePubdate) {
-        requestURLString = [NSString stringWithFormat:@"%@?last_pubdate=%@", baseURLString,_lastArictlePubdate];
-    } else {
-        requestURLString = baseURLString;
-    }
-    
-    NSLog(@"requestURLString: %@", requestURLString);
-
-    //NSURL *url = [NSURL URLWithString:@"http://localhost:3000/rss_feed_loader/get_feed.json"];
-    NSURL *url = [NSURL URLWithString:requestURLString];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc]
-                                                initWithRequest:request
-                                            responseDescriptors:@[responseDescriptor]];
-    
-    RKManagedObjectStore *store = [[MNSDataModel sharedDataModel] objectStore];
-    operation.managedObjectCache = store.managedObjectCache;
-    operation.managedObjectContext = store.mainQueueManagedObjectContext;
-    
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-        
-        if (_objects) {
-            //_objects = @[_objects, mappingResult.array];
-            //_objects = [NSArray ]
-            NSMutableArray *temp = [NSMutableArray arrayWithArray:_objects];
-            [temp addObjectsFromArray:mappingResult.array];
-            _objects = [NSArray arrayWithArray:temp];
-            NSLog(@"Objects count: %lu", (unsigned long)[_objects count]);
-        } else {
-            _objects = mappingResult.array;
-        }
-        
-        
-        _lastArticle = [_objects objectAtIndex:[_objects count]-1];
-        _lastArictlePubdate = _lastArticle.pubdate;
-        NSLog(@"Last pubdate is: %@", _lastArictlePubdate);
-//        NSLog(@"Result mapped: %@", mappingResult);
-        [SVProgressHUD dismiss];
-        [refreshControl endRefreshing];
-        [SVProgressHUD showSuccessWithStatus:@"Yey!"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [self.tableView reloadData];
-    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-        NSLog(@"ERROR: %@", error);
-        NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
-    }];
-    
-    [operation start];
+    return responseDescriptor;
 }
-
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state
 {
-    [self refreshFeed];
-}
-
--(void)refreshFeed
-{
     [self loadData];
-
 }
-
 
 #pragma mark - Table View
 
@@ -171,21 +172,9 @@
 }
 
 
-
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    RSSItem *item = [_objects objectAtIndex:indexPath.row];
-//    CGRect cellMessageRect = [item.cellMessage boundingRectWithSize:CGSizeMake(200, 1000) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-//
-//    return cellMessageRect.size.height;
-//}
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    
+
     static NSString *tableIdentifier = @"ArticleTableCell";
     
     MNSArticleTableCell *cell = (MNSArticleTableCell *)[tableView dequeueReusableCellWithIdentifier:tableIdentifier];
@@ -197,60 +186,23 @@
     
     MNSArticle *currItem = _objects[indexPath.row];    
     cell.title.text = currItem.title;
-    
-//    MNSArticle *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    NSLog(@"This is my article: %@", currItem);
-//    cell.title.text = article.title;
     return cell;
 
-    
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView reloadData];
-}
-
-//- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
-//    CGPoint offset = aScrollView.contentOffset;
-//    CGRect bounds = aScrollView.bounds;
-//    CGSize size = aScrollView.contentSize;
-//    UIEdgeInsets inset = aScrollView.contentInset;
-//    float y = offset.y + bounds.size.height - inset.bottom;
-//    float h = size.height;
-//    // NSLog(@"offset: %f", offset.y);
-//    // NSLog(@"content.height: %f", size.height);
-//    // NSLog(@"bounds.height: %f", bounds.size.height);
-//    // NSLog(@"inset.top: %f", inset.top);
-//    // NSLog(@"inset.bottom: %f", inset.bottom);
-//    // NSLog(@"pos: %f of %f", y, h);
-//    
-//    float reload_distance = 50;
-//    if(y > h + reload_distance) {
-//        NSLog(@"load more rows");
-//        [self refreshFeed];
-//    }
-//}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)aScrollView
 {
     NSArray *visibleRows = [self.tableView visibleCells];
     UITableViewCell *lastVisibleCell = [visibleRows lastObject];
     NSIndexPath *path = [self.tableView indexPathForCell:lastVisibleCell];
-    
-    // First figure out how many sections there are
     NSInteger lastSectionIndex = [self.tableView numberOfSections] - 1;
-    
-    // Then grab the number of rows in the last section
     NSInteger lastRowIndex = [self.tableView numberOfRowsInSection:lastSectionIndex] - 1;
-    
-    // Now just construct the index path
     NSIndexPath *pathToLastRow = [NSIndexPath indexPathForRow:lastRowIndex inSection:lastSectionIndex];
     
     if(path.row == pathToLastRow.row)
     {
-        NSLog(@"PLZ RELOAD ME");
-        [self refreshFeed];
+        [self loadData];
     }
 }
 
