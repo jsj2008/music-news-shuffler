@@ -2,7 +2,7 @@
 //  MNSArticle.m
 //  MusicNewsShuffler
 //
-//  Created by Nick Nikolov on 16/02/2013.
+//  Created by Nick Nikolov on 19/02/2013.
 //  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 @implementation MNSArticle
 
+@dynamic articleID;
 @dynamic author;
 @dynamic content;
 @dynamic pubdate;
-@dynamic urlString;
 @dynamic title;
 @dynamic type;
-@dynamic articleID;
+@dynamic urlString;
 
 - (void)setContent:(NSString *)content
 {
@@ -27,4 +27,5 @@
         self.type = @"A";
     }
 }
+
 @end

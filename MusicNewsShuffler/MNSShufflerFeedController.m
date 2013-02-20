@@ -19,19 +19,19 @@
 #define feedBaseURLString @"/rss_feed_loader/get_feed.json"
 
 @interface MNSShufflerFeedController () <NSFetchedResultsControllerDelegate>
-{
-    NSArray *_objects;
-    UIRefreshControl *refreshControl;
-    MNSArticle *_lastArticle;
-    NSString *_lastArictlePubdate;
-    RKEntityMapping *_articleMapping;
-    RKResponseDescriptor *_responseDescriptor;
-    RKManagedObjectStore *_managedObjectStore;
-    RKObjectManager *_objectManager;
-    NSString *_requestURLString;
-}
+
+@property NSArray *objects;
+@property UIRefreshControl *refreshControl;
+@property MNSArticle *lastArticle;
+@property NSString *lastArticlePubdate;
+@property RKEntityMapping *articleMapping;
+@property RKResponseDescriptor *responseDescriptor;
+@property RKManagedObjectStore *managedObjectStore;
+@property RKObjectManager *objectManager;
+@property NSFetchedResultsController *fetchedResultsController;
 
 @end
+
 
 @implementation MNSShufflerFeedController
 
@@ -39,81 +39,89 @@
     
     [super viewDidLoad];
     self.title = @"News Shuffler";
-    refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
                        action:@selector(refreshInvoked:forState:)
              forControlEvents:UIControlEventValueChanged];
     
     NSString* fetchMessage = [NSString stringWithFormat:@"Loading new articles..."];
-    refreshControl.attributedTitle = [[NSAttributedString alloc]
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc]
                                         initWithString:fetchMessage
                                             attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica"
                                                                                        size:11.0]}];
     
-    _articleMapping = [self mapArticle];
-    _responseDescriptor = [self responseDescriptorWithMapping:_articleMapping];
-    _managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-    _objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-    _objectManager.managedObjectStore = _managedObjectStore;
-    [_objectManager addResponseDescriptor:_responseDescriptor];
-    _requestURLString = feedBaseURLString;
-    _lastArictlePubdate = @"";
+    self.articleMapping = [self mapArticle];
+    self.responseDescriptor = [self responseDescriptorWithMapping:_articleMapping];
+    self.managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
+    self.objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
+    self.objectManager.managedObjectStore = self.managedObjectStore;
+    [self.objectManager addResponseDescriptor:self.responseDescriptor];
+    self.lastArticlePubdate = @"";
     
-    [self.tableView addSubview:refreshControl];
+    [self.tableView addSubview:self.refreshControl];
     [SVProgressHUD show];
-    dispatch_async(kBgQueue, ^{
-        [self loadData];
-    });
+    
+    
+    // new core data stuff
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MNSArticle"];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pubdate" ascending:NO];
+    fetchRequest.sortDescriptors = @[descriptor];
+    NSError *error = nil;
+    
+    // Setup fetched results
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[self.objectManager managedObjectStore].mainQueueManagedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    [self.fetchedResultsController setDelegate:self];
+    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
+    if (! fetchSuccessful) {
+        [SVProgressHUD showErrorWithStatus:@"Dang! :("];
+    }
+    self.objects = [self.fetchedResultsController fetchedObjects];
+
+    // new core data stuff
+    
+    [self loadData];
     
 }
 
 - (void)loadData
 {    
-    _requestURLString = [NSString stringWithFormat:@"%@?last_pubdate=%@", _requestURLString,_lastArictlePubdate];
-    [_objectManager getObjectsAtPath:_requestURLString
-                         parameters:nil
+    NSLog(@"LOADING DATA");
+    [_objectManager getObjectsAtPath:feedBaseURLString
+                          parameters:@{@"last_pubdate": self.lastArticlePubdate}
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
     {
-        if (_objects) {
-            NSMutableArray *temp = [NSMutableArray arrayWithArray:_objects];
-            [temp addObjectsFromArray:mappingResult.array];
-            _objects = [NSArray arrayWithArray:temp];
-        } else {
-            _objects = mappingResult.array;
-        }
+//        if (_objects) {
+//            NSMutableArray *temp = [NSMutableArray arrayWithArray:self.objects];
+//            [temp addObjectsFromArray:mappingResult.array];
+//            self.objects = [NSArray arrayWithArray:temp];
+//        } else {
+//            self.objects = mappingResult.array;
+//        }
 
-        _lastArticle = [_objects objectAtIndex:[_objects count]-1];
-        _lastArictlePubdate = _lastArticle.pubdate;
-        [refreshControl endRefreshing];
+        NSLog(@"MAPPING RESULT: %@", mappingResult.array);
+        self.lastArticle = [self.objects objectAtIndex:[self.objects count]-1];
+        self.lastArticlePubdate = self.lastArticle.pubdate;
+        NSLog(@"last pubdate: %@", self.lastArticlePubdate);
+        [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"Yey!"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
 
     } failure:^(RKObjectRequestOperation *operation, NSError *error)
     {
         NSLog(@"ERROR: %@", error);
         NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
-        [refreshControl endRefreshing];
+        [self.refreshControl endRefreshing];
         [SVProgressHUD showErrorWithStatus:@"Whoops!"];
 
     }];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc]
-//                                                initWithRequest:request
-//                                            responseDescriptors:@[responseDescriptor]];
-//    
-//        
-//    RKManagedObjectStore *store = [[MNSDataModel sharedDataModel] objectStore];
-//    operation.managedObjectCache = store.managedObjectCache;
-//    operation.managedObjectContext = store.mainQueueManagedObjectContext;
-//    
-//    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//       }];
-//    
-//    [operation start];
+
 }
 
 - (RKEntityMapping *)mapArticle
@@ -127,6 +135,9 @@
                                                         @"url" :   @"urlString"
      }];
     [articleMapping addAttributeMappingsFromArray:@[@"title", @"author", @"content", @"pubdate"]];
+    
+    articleMapping.identificationAttributes = @[@"title", @"articleID"];
+    
     return articleMapping;
 }
 
@@ -154,7 +165,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_objects count];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
+    NSLog(@"rows: %lu", (unsigned long)[sectionInfo numberOfObjects]);
+    return [sectionInfo numberOfObjects];
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -184,10 +198,32 @@
         cell = [nib objectAtIndex:0];
     }
     
-    MNSArticle *currItem = _objects[indexPath.row];    
+    MNSArticle *currItem = self.objects[indexPath.row];
     cell.title.text = currItem.title;
     return cell;
 
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    NSLog(@"NEW CONTENT YEY");
+    
+//    NSArray *fetchedObjects = [self.fetchedResultsController fetchedObjects];
+//    NSMutableArray *temp = [NSMutableArray arrayWithArray:self.objects];
+//    [temp addObjectsFromArray:fetchedObjects];
+//    self.objects = [NSArray arrayWithArray:temp];
+    
+//    [self.tableView reloadData];
+//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
+    
+    self.objects = [self.fetchedResultsController fetchedObjects];
+    [self.tableView beginUpdates];
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView endUpdates];
+    
+
+   // [self.tableView scrollTo]
 }
 
 
@@ -202,15 +238,18 @@
     
     if(path.row == pathToLastRow.row)
     {
+
         [self loadData];
     }
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        MNSArticle* object = _objects[indexPath.row];
+        MNSArticle* object = self.objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
