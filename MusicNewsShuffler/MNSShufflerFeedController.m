@@ -14,19 +14,15 @@
 #import <RestKit/RestKit.h>
 #import "MNSDataModel.h"
 #import "SVProgressHUD.h"
+#import "MNSArticleObjectManager.h"
 
-#define kBgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define feedBaseURLString @"/rss_feed_loader/get_feed.json"
 
 @interface MNSShufflerFeedController () <NSFetchedResultsControllerDelegate>
 
-@property NSArray *objects;
 @property UIRefreshControl *refreshControl;
-@property MNSArticle *lastArticle;
-@property NSString *lastArticlePubdate;
-@property RKEntityMapping *articleMapping;
-@property RKResponseDescriptor *responseDescriptor;
-@property RKManagedObjectStore *managedObjectStore;
+@property NSString *oldestArticlePubdate;
+@property NSString *newestArticlePubdate;
 @property RKObjectManager *objectManager;
 @property NSFetchedResultsController *fetchedResultsController;
 
@@ -50,26 +46,18 @@
                                             attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica"
                                                                                        size:11.0]}];
     
-    self.articleMapping = [self mapArticle];
-    self.responseDescriptor = [self responseDescriptorWithMapping:_articleMapping];
-    self.managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-    self.objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-    self.objectManager.managedObjectStore = self.managedObjectStore;
-    [self.objectManager addResponseDescriptor:self.responseDescriptor];
-    self.lastArticlePubdate = @"";
+    self.objectManager = [MNSArticleObjectManager createNewManager];
+    
+    self.oldestArticlePubdate = @"";
+    self.newestArticlePubdate = @"";
     
     [self.tableView addSubview:self.refreshControl];
     [SVProgressHUD show];
-    
-    
-    // new core data stuff
-    
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MNSArticle"];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pubdate" ascending:NO];
     fetchRequest.sortDescriptors = @[descriptor];
     NSError *error = nil;
     
-    // Setup fetched results
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                                                         managedObjectContext:[self.objectManager managedObjectStore].mainQueueManagedObjectContext
                                                                           sectionNameKeyPath:nil
@@ -79,11 +67,8 @@
     if (! fetchSuccessful) {
         [SVProgressHUD showErrorWithStatus:@"Dang! :("];
     }
-    self.objects = [self.fetchedResultsController fetchedObjects];
-
-    // new core data stuff
     
-    [self loadData];
+    [self fetchNewerArticles];
     
 }
 
@@ -91,27 +76,17 @@
 {    
     NSLog(@"LOADING DATA");
     [_objectManager getObjectsAtPath:feedBaseURLString
-                          parameters:@{@"last_pubdate": self.lastArticlePubdate}
+                          parameters:@{@"last_pubdate": self.oldestArticlePubdate}
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
     {
-//        if (_objects) {
-//            NSMutableArray *temp = [NSMutableArray arrayWithArray:self.objects];
-//            [temp addObjectsFromArray:mappingResult.array];
-//            self.objects = [NSArray arrayWithArray:temp];
-//        } else {
-//            self.objects = mappingResult.array;
-//        }
 
-        NSLog(@"MAPPING RESULT: %@", mappingResult.array);
-        self.lastArticle = [self.objects objectAtIndex:[self.objects count]-1];
-        self.lastArticlePubdate = self.lastArticle.pubdate;
-        NSLog(@"last pubdate: %@", self.lastArticlePubdate);
+        MNSArticle *lastArticle = [[_fetchedResultsController fetchedObjects] lastObject];
+        self.oldestArticlePubdate = lastArticle.pubdate;
         [self.refreshControl endRefreshing];
         [SVProgressHUD dismiss];
         [SVProgressHUD showSuccessWithStatus:@"Yey!"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-//        [self.tableView reloadData];
 
     } failure:^(RKObjectRequestOperation *operation, NSError *error)
     {
@@ -121,39 +96,74 @@
         [SVProgressHUD showErrorWithStatus:@"Whoops!"];
 
     }];
+    
 
 }
 
-- (RKEntityMapping *)mapArticle
+- (void)fetchNewerArticles
 {
-    RKEntityMapping *articleMapping = [RKEntityMapping
-                                       mappingForEntityForName:@"MNSArticle"
-                                       inManagedObjectStore:[[MNSDataModel sharedDataModel] objectStore]];
-    
-    [articleMapping addAttributeMappingsFromDictionary:@{
-                                                        @"id"  :   @"articleID",
-                                                        @"url" :   @"urlString"
+    [_objectManager getObjectsAtPath:@"/rss_feed_loader/newer_articles.json"
+                          parameters:@{@"newest_pubdate": self.newestArticlePubdate}
+                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+     {
+         
+         [self setPubdates];
+         [self.refreshControl endRefreshing];
+         [SVProgressHUD dismiss];
+         [SVProgressHUD showSuccessWithStatus:@"Yey!"];
+         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+         [[NSUserDefaults standardUserDefaults] synchronize];
+         
+     } failure:^(RKObjectRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"ERROR: %@", error);
+         NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
+         [self.refreshControl endRefreshing];
+         [SVProgressHUD showErrorWithStatus:@"Whoops!"];
+         
      }];
-    [articleMapping addAttributeMappingsFromArray:@[@"title", @"author", @"content", @"pubdate"]];
-    
-    articleMapping.identificationAttributes = @[@"title", @"articleID"];
-    
-    return articleMapping;
+
 }
 
-- (RKResponseDescriptor *)responseDescriptorWithMapping:(RKEntityMapping *)mapping
+- (void)fetchOlderArticles
 {
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor
-                                                responseDescriptorWithMapping:mapping
-                                                pathPattern:@"/rss_feed_loader/get_feed.json"
-                                                keyPath:nil
-                                                statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    return responseDescriptor;
+
+    [_objectManager getObjectsAtPath:@"/rss_feed_loader/older_articles.json"
+                          parameters:@{@"oldest_pubdate": self.oldestArticlePubdate}
+                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+     {
+         
+         [self setPubdates];
+         [self.refreshControl endRefreshing];
+         [SVProgressHUD dismiss];
+         [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
+         [[NSUserDefaults standardUserDefaults] synchronize];
+         
+     } failure:^(RKObjectRequestOperation *operation, NSError *error)
+     {
+         NSLog(@"ERROR: %@", error);
+         NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
+         [self.refreshControl endRefreshing];
+         [SVProgressHUD showErrorWithStatus:@"Whoops!"];
+         
+     }];
+    
+    
+}
+
+- (void)setPubdates
+{
+    MNSArticle *firstArticle = [[_fetchedResultsController fetchedObjects]  objectAtIndex:0];
+    self.newestArticlePubdate = firstArticle.pubdate;
+
+    MNSArticle *lastArticle = [[_fetchedResultsController fetchedObjects] lastObject];
+    self.oldestArticlePubdate = lastArticle.pubdate;
+
 }
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state
 {
-    [self loadData];
+    [self fetchNewerArticles];
 }
 
 #pragma mark - Table View
@@ -166,9 +176,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
-    NSLog(@"rows: %lu", (unsigned long)[sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
-    
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -185,6 +194,11 @@
     
 }
 
+- (void)configureCell:(MNSArticleTableCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    MNSArticle *art = [_fetchedResultsController objectAtIndexPath:indexPath];
+    cell.title.text = art.title;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -198,32 +212,71 @@
         cell = [nib objectAtIndex:0];
     }
     
-    MNSArticle *currItem = self.objects[indexPath.row];
-    cell.title.text = currItem.title;
+    [self configureCell:(MNSArticleTableCell *)cell atIndexPath:indexPath];
     return cell;
 
 }
 
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
+    switch(type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+                          withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:(MNSArticleTableCell *)[tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+                             withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"NEW CONTENT YEY");
-    
-//    NSArray *fetchedObjects = [self.fetchedResultsController fetchedObjects];
-//    NSMutableArray *temp = [NSMutableArray arrayWithArray:self.objects];
-//    [temp addObjectsFromArray:fetchedObjects];
-//    self.objects = [NSArray arrayWithArray:temp];
-    
-//    [self.tableView reloadData];
-//    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
-    
-    self.objects = [self.fetchedResultsController fetchedObjects];
-    [self.tableView beginUpdates];
-    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
     [self.tableView endUpdates];
-    
-
-   // [self.tableView scrollTo]
+    NSIndexPath *path = [NSIndexPath indexPathForRow:([[_fetchedResultsController fetchedObjects] count] - 4) inSection:0];
+    [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 
@@ -238,8 +291,7 @@
     
     if(path.row == pathToLastRow.row)
     {
-
-        [self loadData];
+        [self fetchOlderArticles];
     }
 }
 
@@ -249,7 +301,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        MNSArticle* object = self.objects[indexPath.row];
+        MNSArticle* object = [_fetchedResultsController objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
