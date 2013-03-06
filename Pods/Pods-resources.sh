@@ -22,3 +22,9 @@ install_resource()
   esac
 }
 install_resource 'SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/close.png'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/close@2x.png'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/modalButton-selected.png'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/modalButton-selected@2x.png'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/modalButton.png'
+install_resource 'UAModalPanel/UAModalPanel/Panel/Images/modalButton@2x.png'

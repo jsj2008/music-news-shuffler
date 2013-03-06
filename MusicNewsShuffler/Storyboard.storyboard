@@ -8,70 +8,51 @@
         <scene sceneID="kRT-Yr-1v7">
             <objects>
                 <viewController id="5RE-Eq-R4Z" customClass="MNSSmartShufflerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zPx-oZ-COc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bSo-5c-y5L">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mx1-8a-K0g">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="performLogout:" destination="5RE-Eq-R4Z" eventType="touchUpInside" id="EAp-If-LnZ"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bSo-5c-y5L">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="28"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ArticleTableCell" rowHeight="100" id="h78-Gj-5xK" customClass="MNSArticleTableCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y16-j1-2g1">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="280" id="WCc-rn-N2p"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="363" id="Rx7-FY-9lF"/>
+                                    <constraint firstItem="y16-j1-2g1" firstAttribute="leading" secondItem="h78-Gj-5xK" secondAttribute="leading" constant="20" type="default" id="5lH-ru-ohi"/>
+                                    <constraint firstItem="y16-j1-2g1" firstAttribute="top" secondItem="h78-Gj-5xK" secondAttribute="top" constant="20" type="default" id="uGq-uc-dM6"/>
                                 </constraints>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="28"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ArticleTableCell" rowHeight="100" id="h78-Gj-5xK" customClass="MNSArticleTableCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y16-j1-2g1">
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="280" id="WCc-rn-N2p"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="y16-j1-2g1" firstAttribute="leading" secondItem="h78-Gj-5xK" secondAttribute="leading" constant="20" type="default" id="5lH-ru-ohi"/>
-                                            <constraint firstItem="y16-j1-2g1" firstAttribute="top" secondItem="h78-Gj-5xK" secondAttribute="top" constant="20" type="default" id="uGq-uc-dM6"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="title" destination="y16-j1-2g1" id="vbB-wt-hTY"/>
-                                            <segue destination="Fay-31-15y" kind="push" id="6y0-7X-eai"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="bSo-5c-y5L" firstAttribute="centerX" secondItem="mx1-8a-K0g" secondAttribute="centerX" type="default" id="547-zr-9Wh"/>
-                            <constraint firstItem="bSo-5c-y5L" firstAttribute="top" secondItem="zPx-oZ-COc" secondAttribute="top" type="default" id="Abo-oT-mjm"/>
-                            <constraint firstAttribute="bottom" secondItem="mx1-8a-K0g" secondAttribute="bottom" constant="12" id="Ohy-Lc-xsw"/>
-                            <constraint firstItem="bSo-5c-y5L" firstAttribute="trailing" secondItem="zPx-oZ-COc" secondAttribute="trailing" type="default" id="fuj-sV-zPd"/>
-                            <constraint firstItem="bSo-5c-y5L" firstAttribute="leading" secondItem="zPx-oZ-COc" secondAttribute="leading" type="default" id="rOB-q2-Jgn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="fsf-cz-SfV"/>
+                                <connections>
+                                    <outlet property="title" destination="y16-j1-2g1" id="vbB-wt-hTY"/>
+                                    <segue destination="Fay-31-15y" kind="push" id="6y0-7X-eai"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5RE-Eq-R4Z" id="DXO-4w-Vv5"/>
+                            <outlet property="delegate" destination="5RE-Eq-R4Z" id="lKv-JR-atP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fsf-cz-SfV">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="3fG-Eh-fe8">
+                            <connections>
+                                <action selector="performLogout:" destination="5RE-Eq-R4Z" id="urC-u4-ThJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="ULN-rR-52d" kind="modal" identifier="facebookLoginView" id="Bae-HO-W4S"/>
                     </connections>
@@ -134,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xua-eS-tmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="-1509"/>
+            <point key="canvasLocation" x="917" y="-1481"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="uk3-cx-N59">
@@ -303,40 +284,6 @@
             <point key="canvasLocation" x="-101" y="-779"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="MNSArticleTableCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSArticleTableCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="title" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MNSArticleViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSArticleViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="articleWebView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MNSShufflerFeedController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSShufflerFeedController.h"/>
-        </class>
-        <class className="MNSSmartShufflerLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSSmartShufflerLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelLogin:"/>
-                <relationship kind="action" name="perfomLogin:"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="MNSSmartShufflerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MNSSmartShufflerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="performLogout:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

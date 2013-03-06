@@ -28,10 +28,10 @@
 		AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */; };
 		AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = AD046812168B6C4800F4D9AD /* MNSFeedsLoader.m */; };
 		AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */; };
-		AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */; };
 		AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */; };
 		AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6F879F16CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld */; };
 		AD9D38B316D62B7700609D8C /* MNSArticleObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D38B216D62B7700609D8C /* MNSArticleObjectManager.m */; };
+		AD9D38B916D67EB900609D8C /* MNSSmartShufflerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD9D38B816D67EB900609D8C /* MNSSmartShufflerViewController.m */; };
 		AD9E7301168BBD7E00F2D42A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */; };
 		AD9E7303168BBE8F00F2D42A /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */; };
 		AD9E7305168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AD9E7304168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle */; };
@@ -42,8 +42,8 @@
 		ADAFA9381690E3240077201B /* action-location.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9341690E3240077201B /* action-location.png */; };
 		ADAFA9391690E3240077201B /* action-people.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9351690E3240077201B /* action-people.png */; };
 		ADAFA93A1690E3240077201B /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = ADAFA9361690E3240077201B /* facebook.png */; };
-		ADAFA93D1690E4810077201B /* MNSSmartShufflerLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */; };
-		ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */; };
+		ADBAC66B16E7691E00C39A46 /* MNSArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC66A16E7691E00C39A46 /* MNSArticle.m */; };
+		ADBAC67116E7C13E00C39A46 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = ADBAC67016E7C13E00C39A46 /* KGModal.m */; };
 		ADC6563B16BC501900B28F58 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563A16BC501900B28F58 /* CFNetwork.framework */; };
 		ADC6563D16BC502700B28F58 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563C16BC502700B28F58 /* CoreData.framework */; };
 		ADC6564016BC505A00B28F58 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */; };
@@ -98,11 +98,11 @@
 		AD1B5CBB16CFCEA90070FE8C /* MNSArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNSArticleViewController.m; path = "../../../../../Music News Shuffler/MNSArticleViewController.m"; sourceTree = "<group>"; };
 		AD3EBC1816D01BD100B68B50 /* MNSDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSDataModel.h; sourceTree = "<group>"; };
 		AD3EBC1916D01BD100B68B50 /* MNSDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSDataModel.m; sourceTree = "<group>"; };
-		AD3EBC1B16D030BB00B68B50 /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
-		AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
 		AD6F87A016CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicNewsShufflerCoreData.xcdatamodel; sourceTree = "<group>"; };
 		AD9D38B116D62B7700609D8C /* MNSArticleObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticleObjectManager.h; sourceTree = "<group>"; };
 		AD9D38B216D62B7700609D8C /* MNSArticleObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticleObjectManager.m; sourceTree = "<group>"; };
+		AD9D38B716D67EB900609D8C /* MNSSmartShufflerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNSSmartShufflerViewController.h; path = ../MNSSmartShufflerViewController.h; sourceTree = "<group>"; };
+		AD9D38B816D67EB900609D8C /* MNSSmartShufflerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNSSmartShufflerViewController.m; path = ../MNSSmartShufflerViewController.m; sourceTree = "<group>"; };
 		AD9E7300168BBD7E00F2D42A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		AD9E7302168BBE8F00F2D42A /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		AD9E7304168BBEAB00F2D42A /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBUserSettingsViewResources.bundle; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
@@ -113,10 +113,10 @@
 		ADAFA9341690E3240077201B /* action-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-location.png"; sourceTree = "<group>"; };
 		ADAFA9351690E3240077201B /* action-people.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "action-people.png"; sourceTree = "<group>"; };
 		ADAFA9361690E3240077201B /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
-		ADAFA93B1690E4810077201B /* MNSSmartShufflerLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSSmartShufflerLoginViewController.h; sourceTree = "<group>"; };
-		ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSSmartShufflerLoginViewController.m; sourceTree = "<group>"; };
-		ADAFA93E1690E9F40077201B /* MNSSmartShufflerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSSmartShufflerViewController.h; sourceTree = "<group>"; };
-		ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSSmartShufflerViewController.m; sourceTree = "<group>"; };
+		ADBAC66916E7691E00C39A46 /* MNSArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNSArticle.h; sourceTree = "<group>"; };
+		ADBAC66A16E7691E00C39A46 /* MNSArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNSArticle.m; sourceTree = "<group>"; };
+		ADBAC66F16E7C13E00C39A46 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
+		ADBAC67016E7C13E00C39A46 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		ADC6563A16BC501900B28F58 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		ADC6563C16BC502700B28F58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		ADC6563F16BC505A00B28F58 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -165,6 +165,8 @@
 		AD0467AE168B369700F4D9AD = {
 			isa = PBXGroup;
 			children = (
+				ADBAC66F16E7C13E00C39A46 /* KGModal.h */,
+				ADBAC67016E7C13E00C39A46 /* KGModal.m */,
 				AD0467C3168B369700F4D9AD /* MusicNewsShuffler */,
 				AD0467E7168B369800F4D9AD /* MusicNewsShufflerTests */,
 				AD0467BC168B369700F4D9AD /* Frameworks */,
@@ -215,10 +217,8 @@
 				ADAFA9301690E30F0077201B /* Facebook */,
 				AD0467CC168B369700F4D9AD /* MNSAppDelegate.h */,
 				AD0467CD168B369700F4D9AD /* MNSAppDelegate.m */,
-				ADAFA93E1690E9F40077201B /* MNSSmartShufflerViewController.h */,
-				ADAFA93F1690E9F40077201B /* MNSSmartShufflerViewController.m */,
-				ADAFA93B1690E4810077201B /* MNSSmartShufflerLoginViewController.h */,
-				ADAFA93C1690E4810077201B /* MNSSmartShufflerLoginViewController.m */,
+				AD9D38B716D67EB900609D8C /* MNSSmartShufflerViewController.h */,
+				AD9D38B816D67EB900609D8C /* MNSSmartShufflerViewController.m */,
 				AD04680E168B5A4100F4D9AD /* MNSShufflerFeedController.h */,
 				AD04680F168B5A4100F4D9AD /* MNSShufflerFeedController.m */,
 				AD9D38B116D62B7700609D8C /* MNSArticleObjectManager.h */,
@@ -271,8 +271,8 @@
 		AD3EBC1616D01B8200B68B50 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBC1B16D030BB00B68B50 /* MNSArticle.h */,
-				AD3EBC1C16D030BB00B68B50 /* MNSArticle.m */,
+				ADBAC66916E7691E00C39A46 /* MNSArticle.h */,
+				ADBAC66A16E7691E00C39A46 /* MNSArticle.m */,
 				AD3EBC1716D01BA100B68B50 /* CoreData */,
 			);
 			name = Models;
@@ -444,13 +444,13 @@
 				AD04680D168B598300F4D9AD /* MNSArticleTableCell.m in Sources */,
 				AD046810168B5A4100F4D9AD /* MNSShufflerFeedController.m in Sources */,
 				AD046813168B6C4800F4D9AD /* MNSFeedsLoader.m in Sources */,
-				ADAFA93D1690E4810077201B /* MNSSmartShufflerLoginViewController.m in Sources */,
-				ADAFA9401690E9F40077201B /* MNSSmartShufflerViewController.m in Sources */,
 				AD6F87A116CC13E000003519 /* MusicNewsShufflerCoreData.xcdatamodeld in Sources */,
 				AD5F2FDA16CFD17F00763E52 /* MNSArticleViewController.m in Sources */,
 				AD3EBC1A16D01BD100B68B50 /* MNSDataModel.m in Sources */,
-				AD3EBC1D16D030BB00B68B50 /* MNSArticle.m in Sources */,
 				AD9D38B316D62B7700609D8C /* MNSArticleObjectManager.m in Sources */,
+				AD9D38B916D67EB900609D8C /* MNSSmartShufflerViewController.m in Sources */,
+				ADBAC66B16E7691E00C39A46 /* MNSArticle.m in Sources */,
+				ADBAC67116E7C13E00C39A46 /* KGModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

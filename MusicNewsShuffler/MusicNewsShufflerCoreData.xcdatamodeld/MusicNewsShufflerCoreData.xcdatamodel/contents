@@ -4,12 +4,13 @@
         <attribute name="articleID" optional="YES" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isUsers" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="pubdate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MNSArticle" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="MNSArticle" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

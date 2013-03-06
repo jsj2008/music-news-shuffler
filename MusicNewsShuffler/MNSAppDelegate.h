@@ -15,7 +15,6 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (strong, nonatomic) UITabBarController* tabBarController;
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)showSmartShuffleLoginView;
 - (void)performLogout;
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
 

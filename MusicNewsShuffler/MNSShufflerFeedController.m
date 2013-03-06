@@ -72,33 +72,6 @@
     
 }
 
-- (void)loadData
-{    
-    NSLog(@"LOADING DATA");
-    [_objectManager getObjectsAtPath:feedBaseURLString
-                          parameters:@{@"last_pubdate": self.oldestArticlePubdate}
-                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
-    {
-
-        MNSArticle *lastArticle = [[_fetchedResultsController fetchedObjects] lastObject];
-        self.oldestArticlePubdate = lastArticle.pubdate;
-        [self.refreshControl endRefreshing];
-        [SVProgressHUD dismiss];
-        [SVProgressHUD showSuccessWithStatus:@"Yey!"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"LastUpdatedAt"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-
-    } failure:^(RKObjectRequestOperation *operation, NSError *error)
-    {
-        NSLog(@"ERROR: %@", error);
-        NSLog(@"Response: %@", operation.HTTPRequestOperation.responseString);
-        [self.refreshControl endRefreshing];
-        [SVProgressHUD showErrorWithStatus:@"Whoops!"];
-
-    }];
-    
-
-}
 
 - (void)fetchNewerArticles
 {

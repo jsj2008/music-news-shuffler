@@ -47,7 +47,7 @@
     
     NSLog(@"Setting up store at %@", path);
     
-   // [self.objectStore createPersistentStoreCoordinator];
+    [self.objectStore createPersistentStoreCoordinator];
     
     NSError *error;
 

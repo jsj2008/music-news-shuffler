@@ -2,7 +2,7 @@
 //  MNSArticle.h
 //  MusicNewsShuffler
 //
-//  Created by Nick Nikolov on 19/02/2013.
+//  Created by Nick Nikolov on 06/03/2013.
 //  Copyright (c) 2013 Nick Nikolov. All rights reserved.
 //
 
@@ -19,5 +19,6 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSNumber * isUsers;
 
 @end

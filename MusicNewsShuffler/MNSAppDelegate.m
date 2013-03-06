@@ -8,7 +8,6 @@
 
 #import "MNSAppDelegate.h"
 #import "FacebookSDK/FacebookSDK.h"
-#import "MNSSmartShufflerLoginViewController.h"
 #import "MNSSmartShufflerViewController.h"
 #import <RestKit/RestKit.h>
 #import <RestKit/CoreData.h>
@@ -50,13 +49,6 @@ NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBS
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [FBSession.activeSession close];
-}
-
-- (void)showSmartShuffleLoginView
-{
-    MNSSmartShufflerViewController* smartShuffleViewController = (MNSSmartShufflerViewController*)[[self tabBarController] selectedViewController];
-    NSLog(@"AppDelegate: Show the login view");
-    [smartShuffleViewController showLoginView];
 }
 
 /*
@@ -113,7 +105,6 @@ NSString *const FBSessionStateChangedNotification = @"nn.Music-News-Shuffler:FBS
         case FBSessionStateClosedLoginFailed:
             [FBSession.activeSession closeAndClearTokenInformation];
             NSLog(@"App Delegate: Clearing FB token");
-            [self showSmartShuffleLoginView];
             break;
         default:
             break;

@@ -14,18 +14,15 @@ PODS:
   - RestKit/Support
   - SOCKit
 - RestKit/ObjectMapping (0.20.0rc1)
-- RestKit/Search (0.20.0rc1):
-  - RestKit/CoreData
 - RestKit/Support (0.20.0rc1)
-- RestKit/Testing (0.20.0rc1)
 - SOCKit (1.1)
 - SVProgressHUD (0.9)
+- UAModalPanel (1.1.1)
 
 DEPENDENCIES:
 - RestKit (~> 0.20.0pre)
-- RestKit/Search (~> 0.20.0pre)
-- RestKit/Testing (~> 0.20.0pre)
 - SVProgressHUD (~> 0.9)
+- UAModalPanel (~> 1.1.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
@@ -34,10 +31,9 @@ SPEC CHECKSUMS:
   RestKit/CoreData: 0382132969d823a872b377c1ab2e383f3c74a339
   RestKit/Network: 0382132969d823a872b377c1ab2e383f3c74a339
   RestKit/ObjectMapping: 0382132969d823a872b377c1ab2e383f3c74a339
-  RestKit/Search: 0382132969d823a872b377c1ab2e383f3c74a339
   RestKit/Support: 0382132969d823a872b377c1ab2e383f3c74a339
-  RestKit/Testing: 0382132969d823a872b377c1ab2e383f3c74a339
   SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
   SVProgressHUD: 98935fbafaf0031df4a9cafca3c66eaf3da06967
+  UAModalPanel: e0f697b4d89ccf0f07c3dc2eb7d17d0e3cb7fe56
 
 COCOAPODS: 0.16.2
