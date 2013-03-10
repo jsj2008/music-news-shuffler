@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MNSFeedsLoader.h"
 
-@interface MNSShufflerFeedController : UITableViewController
+@interface MNSShufflerFeedController : MNSFeedsLoader
 
 @end

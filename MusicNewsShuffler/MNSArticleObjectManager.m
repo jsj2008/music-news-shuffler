@@ -20,15 +20,36 @@
 
 + (RKObjectManager *)createNewManager
 {
-    RKEntityMapping *articleMapping = [self mapArticle];
-    RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-    objectManager.managedObjectStore = managedObjectStore;
-    [objectManager addResponseDescriptorsFromArray: @[
-                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
-                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"]]];
     
-    return objectManager;
+    static RKObjectManager *__sharedObjectManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        RKEntityMapping *articleMapping = [self mapArticle];
+        RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
+        __sharedObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
+        __sharedObjectManager.managedObjectStore = managedObjectStore;
+        [__sharedObjectManager addResponseDescriptorsFromArray: @[
+                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
+                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"],
+                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/newer_articles.json"],
+                    [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/older_articles.json"]]];
+    });
+    
+    return __sharedObjectManager;
+//    RKEntityMapping *articleMapping = [self mapArticle];
+//    RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
+//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
+//    objectManager.managedObjectStore = managedObjectStore;
+//    [objectManager addResponseDescriptorsFromArray: @[
+//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
+//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"],
+//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/newer_articles.json"],
+//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/older_articles.json"]]];
+//    
+//    return objectManager;
+//    
+    
+
 }
 
 + (RKEntityMapping *)mapArticle
@@ -47,6 +68,7 @@
     
     return articleMapping;
 }
+
 
 + (RKResponseDescriptor *)responseDescriptorWithMapping:(RKEntityMapping *)mapping andPathPattern:(NSString *)pathPattern
 {

@@ -1,21 +1,28 @@
 //
-//  RSSFeedsLoader.h
+//  ShufflerFeedController.h
 //  Music News Shuffler
 //
 //  Created by Nick Nikolov on 26/12/2012.
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-typedef void (^RSSLoaderCompleteBlock)(NSArray* results);
+#import <UIKit/UIKit.h>
+#import "MNSDataModel.h"
 
-@interface MNSFeedsLoader : NSObject
+@interface MNSFeedsLoader : UITableViewController <NSFetchedResultsControllerDelegate>
 
-//-(NSMutableArray*)loadTypeAFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
-//-(NSMutableArray*)loadTypeBFeedWithURL:(NSString*)url;
-//-(NSMutableArray*)loadTypeCFeedWithURL:(NSString*)url descriptionTag:(NSString*)descTag;
+@property NSFetchedResultsController *fetchedResultsController;
 
-//-(void)fetchRSSWithCompletion:(RSSLoaderCompleteBlock)c;
 
+// Need to be set in the inheriting class
+@property NSString *pathToNewerArticles;
+@property NSString *pathToOlderArticles;
+@property NSString *parameterForNewerArticles;
+@property NSString *parameterForOlderArticles;
+@property NSString *userParameter;
+@property NSNumber *userID;
+// ...
+
+- (void)setupFeed;
 
 @end

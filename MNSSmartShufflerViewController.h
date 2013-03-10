@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MNSFeedsLoader.h"
 
-@interface MNSSmartShufflerViewController : UITableViewController
+@interface MNSSmartShufflerViewController : MNSFeedsLoader
 
 
 - (IBAction)performLogout:(id)sender;

@@ -58,7 +58,7 @@ NSString *const KGModalGradientViewTapped = @"KGModalGradientViewTapped";
     self.shouldRotate = YES;
     self.tapOutsideToDismiss = YES;
     self.animateWhenDismissed = YES;
-    self.showCloseButton = YES;
+    self.showCloseButton = NO;
     self.modalBackgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     
     return self;
