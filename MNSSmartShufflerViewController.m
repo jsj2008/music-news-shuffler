@@ -12,11 +12,11 @@
 #import "MNSArticleObjectManager.h"
 #import <RestKit/RestKit.h>
 #import "KGModal.h"
-#import "MNSAppDelegate.h"
-
-
+#import "MNSFacebookManager.h"
 
 @interface MNSSmartShufflerViewController ()
+
+@property MNSFacebookManager *facebookManager;
 
 @end
 
@@ -31,13 +31,19 @@
     [super setParameterForNewerArticles:@"newest_pubdate"];
     [super setParameterForOlderArticles:@"oldest_pubdate"];
     
-    
     self.title = @"Smart Feed";
+
+//    self.facebookManager = [[MNSFacebookManager alloc] init];
+//    [self.facebookManager setCancelLoginOptionSelector:@selector(cancelLogin)];
+    
+ //   [self.facebookManager addFBObserverToSender:self WithSelector:@selector(sessionStateChanged:)];
+    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(sessionStateChanged:)
      name:FBSessionStateChangedNotification
      object:nil];
+    
     
     
     if (FBSession.activeSession.isOpen){
@@ -49,6 +55,7 @@
         [self showLoginView];
     }
     
+//    [self.facebookManager checkFBSession];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -61,11 +68,11 @@
         NSLog(@"SmartShufflerViewController: Closed session");
         [self showLoginView];
     }
+//    [self.facebookManager checkFBSession];
 }
 
 - (void)postArtistsToServerWithFacebookDictionary:(id)fbDictionary
 {
-    //NSLog(@"Result: %@", [[[result objectForKey:@"data"] objectAtIndex:0] objectForKey:@"music"]);
     RKObjectManager *objectManager = [MNSArticleObjectManager createNewManager];
     [[objectManager HTTPClient] postPath:@"/users.json"
                               parameters:@{@"artists": [[[fbDictionary objectForKey:@"data"] objectAtIndex:0] objectForKey:@"music"]}
@@ -80,17 +87,17 @@
 
 - (void)fetchFacebookInformation
 {
-    [[FBRequest requestForMe] startWithCompletionHandler:
-     ^(FBRequestConnection *connection,
-       NSDictionary<FBGraphUser> *user,
-       NSError *error) {
-         if (!error) {
-             self.title = user.name;
-             self.title = [self.title stringByAppendingString:@"\'s Smart Feed"];
-             //NSLog(@"%@", user);
-             
-         }
-     }];
+//    [[FBRequest requestForMe] startWithCompletionHandler:
+//     ^(FBRequestConnection *connection,
+//       NSDictionary<FBGraphUser> *user,
+//       NSError *error) {
+//         if (!error) {
+//             self.title = user.name;
+//             self.title = [self.title stringByAppendingString:@"\'s Smart Feed"];
+//             //NSLog(@"%@", user);
+//             
+//         }
+//     }];
     
     NSString *fqlQuery = @"SELECT music FROM user WHERE uid = me()";
     NSDictionary *queryParam = @{@"q": fqlQuery};
@@ -105,9 +112,14 @@
                               } else {
                                   [self postArtistsToServerWithFacebookDictionary:fbDictionary];
                                   [self setupFeed];
+                                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUsers != nil"];
+                                  [self.fetchRequest setPredicate:predicate];
+                                  [self startLoading];
+
                                   [self.tableView reloadData];
                               }
                           }];
+    
 }
 
 - (void)performLogout:(id)sender
@@ -116,6 +128,8 @@
     self.title = @"Smart Feed";
     MNSAppDelegate* appDelegate = (MNSAppDelegate*)[UIApplication sharedApplication].delegate;
     [appDelegate performLogout];
+    
+    //[self.facebookManager logout];
 }
 
 - (void)performLogin
@@ -127,15 +141,9 @@
     [appDelegate openSessionWithAllowLoginUI:YES];
     [[KGModal sharedInstance] hideAnimated:YES];
 
+//    [self.facebookManager login];
 }
 
-- (void)cancelLogin
-{
-    NSLog(@"SmartShufflerVewController: Cancel login");
-    [[KGModal sharedInstance] hideAnimated:YES];
-    UITabBarController* tbc = (UITabBarController *)self.parentViewController.parentViewController;
-    [tbc setSelectedIndex:0];
-}
 
 - (void)showLoginView
 {
@@ -170,23 +178,39 @@
     
 }
 
+- (void)cancelLogin
+{
+    NSLog(@"SmartShufflerVewController: Cancel login");
+    [[KGModal sharedInstance] hideAnimated:YES];
+    UITabBarController* tbc = (UITabBarController *)self.parentViewController.parentViewController;
+    [tbc setSelectedIndex:0];
+}
 
 
 - (void)sessionStateChanged:(NSNotification*)notification {
     if (FBSession.activeSession.isOpen) {
-        
         [self fetchFacebookInformation];
-        
         NSLog(@"SmartShufflerViewController: Logged in");
-        //[[KGModal sharedInstance] hideAnimated:YES];
-
         
     } else {
         NSLog(@"SmartShufflerViewController: Logged out");
         NSLog(@"SmartShufflerViewController: Show the login view");
         [self showLoginView];
-        
     }
+    
+    
+    
+    
+//    NSLog(@"SESSION STATE CHANGED");
+//    [self.facebookManager checkFBSessionAndFetchFBInfoWithBlock:^{
+//        [self postArtistsToServerWithFacebookDictionary:[self.facebookManager facebookResultDictionary]];
+//        [self setupFeed];
+//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isUsers != nil"];
+//        [self.fetchRequest setPredicate:predicate];
+//        [self startLoading];
+//
+//        [self.tableView reloadData];
+//    }];
     
 }
 

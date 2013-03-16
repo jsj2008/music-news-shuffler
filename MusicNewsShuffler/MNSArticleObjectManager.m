@@ -36,20 +36,7 @@
     });
     
     return __sharedObjectManager;
-//    RKEntityMapping *articleMapping = [self mapArticle];
-//    RKManagedObjectStore *managedObjectStore = [[MNSDataModel sharedDataModel] objectStore];
-//    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-//    objectManager.managedObjectStore = managedObjectStore;
-//    [objectManager addResponseDescriptorsFromArray: @[
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/newer_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/rss_feed_loader/older_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/newer_articles.json"],
-//                [self responseDescriptorWithMapping:articleMapping andPathPattern:@"/users/older_articles.json"]]];
-//    
-//    return objectManager;
-//    
-    
-
+   
 }
 
 + (RKEntityMapping *)mapArticle

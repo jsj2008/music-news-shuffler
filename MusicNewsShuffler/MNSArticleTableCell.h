@@ -10,5 +10,7 @@
 
 @interface MNSArticleTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *author;
+@property (weak, nonatomic) IBOutlet UILabel *pubdate;
 
 @end

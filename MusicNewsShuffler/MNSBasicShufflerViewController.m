@@ -6,20 +6,21 @@
 //  Copyright (c) 2012 Nick Nikolov. All rights reserved.
 //
 
-#import "MNSShufflerFeedController.h"
+#import "MNSBasicShufflerViewController.h"
 #import "MNSArticleViewController.h"
 
-@implementation MNSShufflerFeedController
+@implementation MNSBasicShufflerViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"News Shuffler";
+    self.title = @"The Basic Shuffler";
     [self setPathToNewerArticles:@"/rss_feed_loader/newer_articles.json"];
     [self setPathToOlderArticles:@"/rss_feed_loader/older_articles.json"];
     [self setParameterForNewerArticles:@"newest_pubdate"];
     [self setParameterForOlderArticles:@"oldest_pubdate"];
     [self setupFeed];
+    [self startLoading];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

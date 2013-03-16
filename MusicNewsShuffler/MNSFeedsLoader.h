@@ -12,6 +12,8 @@
 @interface MNSFeedsLoader : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property NSFetchedResultsController *fetchedResultsController;
+@property NSFetchRequest *fetchRequest;
+
 
 
 // Need to be set in the inheriting class
@@ -24,5 +26,6 @@
 // ...
 
 - (void)setupFeed;
+- (void)startLoading;
 
 @end

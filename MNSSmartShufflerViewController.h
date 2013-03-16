@@ -13,7 +13,7 @@
 
 
 - (IBAction)performLogout:(id)sender;
-- (void)showLoginView;
+//- (void)showLoginView;
 
 
 @end

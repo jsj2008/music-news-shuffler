@@ -36,7 +36,7 @@
     NSString* fetchMessage = [NSString stringWithFormat:@"Loading new articles..."];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc]
                                            initWithString:fetchMessage
-                                           attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Helvetica"
+                                           attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Anaheim-Regular"
                                                                                             size:11.0]}];
     [self.tableView addSubview:self.refreshControl];
 
@@ -51,26 +51,31 @@
     
     [SVProgressHUD show];
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MNSArticle"];
+   
+    self.fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"MNSArticle"];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pubdate" ascending:NO];
-    fetchRequest.sortDescriptors = @[descriptor];
-    NSError *error = nil;
+    self.fetchRequest.sortDescriptors = @[descriptor];
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+    }
+
+- (void)startLoading
+{
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.fetchRequest
                                                                         managedObjectContext:[self.objectManager managedObjectStore].mainQueueManagedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
     
     [self.fetchedResultsController setDelegate:self];
-    
-    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
-    NSLog(@"FETCHED OBJECTS COUNT: %lu", (unsigned long)[[self.fetchedResultsController fetchedObjects] count]);
+    NSError *error = nil;
 
+    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
+    
     if (! fetchSuccessful) {
         [SVProgressHUD showErrorWithStatus:@"Dang! :("];
     }
     
     [self fetchNewerArticles];
+
 }
 
 
@@ -82,13 +87,25 @@
 }
 
 
+- (void)setIsUsersAttribute:(RKMappingResult *)mappingResult
+{
+    if (self.userID) {
+        NSLog(@"Something Matches the user");
+        for (int i = 0; i < mappingResult.array.count; i++) {
+            [[mappingResult.array objectAtIndex:i] setIsUsers:[NSNumber numberWithInt:1]];
+        }
+    }
+}
+
 - (void)fetchNewerArticles
 {
     [_objectManager getObjectsAtPath:self.pathToNewerArticles
                           parameters:[self updatedParametersForNewerArticlesRequest]
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
      {
+         [self setIsUsersAttribute:mappingResult];
          
+         NSLog(@"RESULTTTTTTTT: %@", mappingResult.array);
          [self setPubdates];
          [self.refreshControl endRefreshing];
          [SVProgressHUD dismiss];
@@ -114,7 +131,7 @@
                           parameters:[self updatedParametersForOlderArticlesRequest]
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
      {
-         
+         [self setIsUsersAttribute:mappingResult];
          [self setPubdates];
          [self.refreshControl endRefreshing];
          [SVProgressHUD dismiss];
@@ -151,12 +168,14 @@
 
 - (void)setPubdates
 {
-    MNSArticle *firstArticle = [[_fetchedResultsController fetchedObjects]  objectAtIndex:0];
-    self.newestArticlePubdate = firstArticle.pubdate;
-    
-    MNSArticle *lastArticle = [[_fetchedResultsController fetchedObjects] lastObject];
-    self.oldestArticlePubdate = lastArticle.pubdate;
-    
+    if ([_fetchedResultsController fetchedObjects].count > 0) {
+        MNSArticle *firstArticle = [[_fetchedResultsController fetchedObjects]  objectAtIndex:0];
+        self.newestArticlePubdate = firstArticle.pubdate;
+        
+        MNSArticle *lastArticle = [[_fetchedResultsController fetchedObjects] lastObject];
+        self.oldestArticlePubdate = lastArticle.pubdate;
+    }
+        
 }
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state
@@ -174,7 +193,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController.sections objectAtIndex:section];
-    NSLog(@"NUMBER OF ROWS, %lu",(unsigned long)[sectionInfo numberOfObjects]);
     return [sectionInfo numberOfObjects];
     
 }
@@ -195,7 +213,10 @@
 
 - (void)configureCell:(MNSArticleTableCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     MNSArticle *art = [_fetchedResultsController objectAtIndexPath:indexPath];
+    
     cell.title.text = art.title;
+    cell.author.text = art.author;
+    cell.pubdate.text = art.pubdate;
 }
 
 
@@ -218,6 +239,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
+    NSLog(@"PREDICATE: %@ in view %@", [self.fetchRequest predicate], self.class);
 }
 
 

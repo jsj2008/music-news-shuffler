@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MNSFeedsLoader.h"
 
-@interface MNSShufflerFeedController : MNSFeedsLoader
+@interface MNSBasicShufflerViewController : MNSFeedsLoader
 
 @end
